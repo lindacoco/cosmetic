@@ -13,7 +13,7 @@ public class EmployeeVO {
 	private Date empbirth;
 	private String emptel;
 	private String empaddr;
-	private String empaut;
+	private String empauth;
 	private String empid;
 	private String emppass;
 	private int empretired;
@@ -47,11 +47,11 @@ public class EmployeeVO {
 	public void setEmpaddr(String empaddr) {
 		this.empaddr = empaddr;
 	}
-	public String getEmpaut() {
-		return empaut;
+	public String getEmpauth() {
+		return empauth;
 	}
-	public void setEmpaut(String empaut) {
-		this.empaut = empaut;
+	public void setEmpaut(String empauth) {
+		this.empauth = empauth;
 	}
 	public String getEmpid() {
 		return empid;
@@ -74,7 +74,7 @@ public class EmployeeVO {
 	@Override
 	public String toString() {
 		return "EmployeeVO [empno=" + empno + ", empname=" + empname + ", empbirth=" + empbirth + ", emptel=" + emptel
-				+ ", empaddr=" + empaddr + ", empaut=" + empaut + ", empid=" + empid + ", emppass=" + emppass
+				+ ", empaddr=" + empaddr + ", empaut=" + empauth + ", empid=" + empid + ", emppass=" + emppass
 				+ ", empretired=" + empretired + "]";
 	}
 	

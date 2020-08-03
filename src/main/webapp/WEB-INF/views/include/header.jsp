@@ -15,10 +15,15 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
+<!--  아이콘  -->
+<link
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">
   <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>개인프로젝트 | Cosmetic Admin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="${pageContext.request.contextPath }/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -175,7 +180,7 @@
                       </li>
                       <li>
                         <a href="#">
-                          <i class="fa fa-user text-red"></i> You changed your username
+                          <i class="fa fa-user text-red"></i> hyeonseo jang
                         </a>
                       </li>
                     </ul>
@@ -256,16 +261,16 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="${pageContext.request.contextPath }/resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <img src="${pageContext.request.contextPath }/resources/images/profile2.jpg" class="user-image" alt="User Image"/>
                   <span class="hidden-xs">${Auth }</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="${pageContext.request.contextPath }/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="${pageContext.request.contextPath }/resources/images/profile2.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      Hyeonseo Jang
+                      <small>Developer</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -306,7 +311,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="${pageContext.request.contextPath }/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+              <img src="${pageContext.request.contextPath }/resources/images/profile2.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p>${Auth }</p>
@@ -326,10 +331,10 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">Main Menu</li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>직원관리</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fas fa-user-tie" style="margin-right:5px;"></i> <span> 직원관리</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="${pageContext.request.contextPath }/resources/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
@@ -338,7 +343,7 @@
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-files-o"></i>
+                <i class="fas fa-gift" style="margin-right:5px;"></i>
                 <span>상품관리</span>
                 <span class="label label-primary pull-right">4</span>
               </a>
@@ -351,12 +356,12 @@
             </li>
             <li>
               <a href="../widgets.html">
-                <i class="fa fa-th"></i> <span>고객관리</span> <small class="label pull-right bg-green">new</small>
+                <i class="fab fa-teamspeak" style="margin-right:5px;"></i> <span>고객관리</span> <small class="label pull-right bg-green">new</small>
               </a>
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-pie-chart"></i>
+                <i class="far fa-gem" style="margin-right:5px;"></i>
                 <span>이벤트</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -369,7 +374,7 @@
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-laptop"></i>
+                <i class="fas fa-info-circle" style="margin-right:5px;"></i>
                 <span>공지사항</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -382,7 +387,7 @@
                 <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
               </ul>
             </li>
-            <li class="treeview active">
+  <!--           <li class="treeview active">
               <a href="#">
                 <i class="fa fa-edit"></i> <span>Forms</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -452,13 +457,13 @@
                 </li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
               </ul>
-            </li>
-            <li><a href="${pageContext.request.contextPath }/resources/documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+            </li> -->
+           <%--  <li><a href="${pageContext.request.contextPath }/resources/documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-          </ul>
+          --%> </ul>
         </section>
         <!-- /.sidebar -->
       </aside>
@@ -468,13 +473,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Board Management
-            <small>Preview</small>
+             쇼핑몰 관리 페이지
+            <small><b><a href="#" style="text-decoration:none;"><font color=red>to Mall</font></a></b></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Forms</a></li>
-            <li class="active">General Elements</li>
+            <!-- <li><a href="#">Forms</a></li>
+            <li class="active">General Elements</li> -->
           </ol>
         </section>
 	

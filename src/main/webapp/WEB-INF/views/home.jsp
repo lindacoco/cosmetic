@@ -4,7 +4,12 @@
 <%@ page session="false" %>
 <%@ include file="include/header.jsp" %>
 
-
+<style>
+  #mainContent{
+     width:100%;
+     height: 700px;
+  }
+</style>
 <div class="content">
 
          <div class="row">
@@ -19,7 +24,7 @@
 
                     </div>
 
-                    <div class="box-body">
+                    <div class="box-body" id="mainContent">
 
                        content들어갈 위치
 
