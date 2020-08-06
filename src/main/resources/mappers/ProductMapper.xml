@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.ProductMapper">
+
+<!-- 상품 추가 타임디비 나중에 체크필요 -->
+  <insert id="insertProduct" parameterType="ProductVO"> 
+     insert into Product(pno, pname, pcontent, penroll, pprice, ppic, pdiv, pevent, pstock, psale) values
+     (#{pno}, #{pname}, #{pcontent}, now(), #{pprice}, #{ppic}, #{pdiv}, #{pevent}, #{pstock}, 0)
+  </insert>
+
+
+<!-- 품번으로 검색 -->
+   <select id="readByNoProduct" resultType="ProductVO">
+     select * from Product
+     where pno = #{pno} 
+   </select> 
+
+<!-- 상품 업데이트 -->
+    <update id="updateProduct" parameterType="ProductVO">
+       update Product set 
+       pname =#{pname}, pcontent=#{pcontent}, pprice=#{pprice},ppic=#{ppic}, pdiv=#{pdiv}, pevent=#{pevent}, pstock = #{pstock}, psale= #{psale}
+       where pno=#{pno}
+    </update> 
+
+
+<!-- 상품 삭제  -->
+   <delete id="deleteProduct">
+       delete from Product 
+       where pno= #{pno}
+   </delete>
+
+
+<!-- 검색 기능 map이 아니라서 cri. 삭제 -->
+ <sql id="search">
+	 <where>
+	      <if test="searchType=='pdiv'.toString()">
+		    and pdiv like CONCAT('%',#{keyword},'%')
+		  </if>
+		  <if test="searchType=='pname'.toString()">
+		    and pname like CONCAT('%',#{keyword},'%')
+		  </if>
+	  </where>
+ </sql>
+
+<!-- 검색으로 나타나는 리스트 부분 -->
+    <select id="listSearchCriteriaProduct" resultType="ProductVO">
+      select * from product <include refid="search"/> order by pno desc limit #{pageStart}, #{perPageNum}
+    </select>
+	<!-- 검색한 결과 수  -->
+	    <select id="totalSearchCountProduct" resultType="int">
+	        select  count(pno) from product 
+		    <include refid="search"/>  
+	    
+	    </select>
+ 
+</mapper>

@@ -4,6 +4,7 @@ DROP SCHEMA IF EXISTS `cosmetic`;
 -- mall
 CREATE SCHEMA `cosmetic`;
 
+use cosmetic;
 -- 사원
 CREATE TABLE `employee` (
 	`empno`      INT          NOT NULL COMMENT '사번', -- 사번
@@ -38,7 +39,8 @@ CREATE TABLE `product` (
 	`ppic`     VARCHAR(255) NULL     COMMENT '상품사진', -- 상품사진
 	`pdiv`     CHAR(1)      NULL     COMMENT '상품구분', -- 상품구분
 	`pevent`   TINYINT(1)   NULL     COMMENT '이벤트상품', -- 이벤트상품
-	`pstock`   INT          NULL     COMMENT '재고' -- 재고
+	`pstock`   INT          NULL     COMMENT '재고', -- 재고
+	`psale`    INT          NULL     COMMENT '판매량' -- 판매량
 )
 COMMENT '상품';
 
@@ -48,6 +50,9 @@ ALTER TABLE `product`
 		PRIMARY KEY (
 			`pno` -- 상품번호
 		);
+
+ALTER TABLE `product`
+	MODIFY COLUMN `pno` INT NOT NULL AUTO_INCREMENT COMMENT '상품번호';
 
 -- 상품평
 CREATE TABLE `review` (
@@ -65,6 +70,9 @@ ALTER TABLE `review`
 		PRIMARY KEY (
 			`no` -- 번호
 		);
+
+ALTER TABLE `review`
+	MODIFY COLUMN `no` INT NOT NULL AUTO_INCREMENT COMMENT '번호';
 
 -- 회원
 CREATE TABLE `user` (
@@ -86,6 +94,9 @@ ALTER TABLE `user`
 			`userno` -- 유저번호
 		);
 
+ALTER TABLE `user`
+	MODIFY COLUMN `userno` INT NOT NULL AUTO_INCREMENT COMMENT '유저번호';
+
 -- 이벤트
 CREATE TABLE `event` (
 	`eno`        INT          NOT NULL COMMENT '번호', -- 번호
@@ -104,6 +115,9 @@ ALTER TABLE `event`
 			`eno` -- 번호
 		);
 
+ALTER TABLE `event`
+	MODIFY COLUMN `eno` INT NOT NULL AUTO_INCREMENT COMMENT '번호';
+
 -- 공지사항
 CREATE TABLE `notice` (
 	`nno`      INT          NOT NULL COMMENT '번호', -- 번호
@@ -120,6 +134,9 @@ ALTER TABLE `notice`
 		PRIMARY KEY (
 			`nno` -- 번호
 		);
+
+ALTER TABLE `notice`
+	MODIFY COLUMN `nno` INT NOT NULL AUTO_INCREMENT COMMENT '번호';
 
 -- 상품평
 ALTER TABLE `review`
