@@ -332,14 +332,10 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">Main Menu</li>
-            <li class="treeview">
-              <a href="#">
+            <li>
+              <a href="${pageContext.request.contextPath }/employeeList/0">
                 <i class="fas fa-user-tie" style="margin-right:5px;"></i> <span> 직원관리</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="${pageContext.request.contextPath }/resources/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="${pageContext.request.contextPath }/resources/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-              </ul>
             </li>
             <li class="treeview">
               <a href="#">

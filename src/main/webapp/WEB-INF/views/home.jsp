@@ -26,8 +26,6 @@
 
                     <div class="box-body" id="mainContent">
 
-                       content들어갈 위치
-
                     </div>
 
                  </div>
