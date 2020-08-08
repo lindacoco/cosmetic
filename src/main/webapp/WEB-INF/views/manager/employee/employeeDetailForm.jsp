@@ -35,7 +35,8 @@
 			var empbirth = $("input[name='empbirth']").val();
 			var emptel = $("input[name='emptel']").val();
 			var empaddr = $("input[name='empaddr']").val();
-			var empauth = $("input[name='empauth']").val();
+			var empauth = $("#empauth option:selected").val();
+		//	alert(empauth);
 			var empid = $("input[name='empid']").val();
 			var emppass = $("input[name='emppass']").val();
 	//		var forCheckId = $("#forCheckId").val
@@ -58,13 +59,7 @@
 				$("input[name='emptel']").next().css("display", "inline");
 				  return false;
 			  }
-			
-			//권한 정규 표현식
-			var authReg = /^(0|1)$/;
-			if(authReg.test(empauth) == false){
-				$("input[name='empauth']").next().css("display", "inline");
-				  return false;
-			  }
+	
 			
 		    //사원 아이디 정규 표현식, 회원 아이디 규칙과 동일
 		    var idReg = /^[a-z0-9]{5,12}$/i; //영어, 숫자 6-15
@@ -107,7 +102,7 @@
 			
 		})
 		
-		//삭제 버튼을 눌렀을 경우 퇴사사원 처리 - 논리삭제
+/* 		//삭제 버튼을 눌렀을 경우 퇴사사원 처리 - 논리삭제
 		$("#btnDel").click(function(){
 			//먼저 확인창으로 물어볼 것
 			
@@ -122,15 +117,14 @@
 				location.href="${pageContext.request.contextPath}/manager/employeeDelete/${empretired}/"+empno+"?searchType="+searchType+"&keyword="+keyword;
 			}
 			
-		})
-		
-		
-		
+		}) */
+	
      
         //리스트로 버튼 눌렀을 때 리스트로 돌아가기 
 		$("#btnReturnToList").click(function(){
-			location.href="${pageContext.request.contextPath}/manager/empMngList/${empretired}/?searchType="+searchType+"&keyword="+keyword;
+			location.href="${pageContext.request.contextPath}/employeeList/${empretired}/?searchType="+searchType+"&keyword="+keyword;
 		})
+		
 		
 	})
 	
@@ -142,7 +136,7 @@
 				<div class="box-header">
 					<h3 class="box-title">사원 정보 조회</h3> 
 				</div>
-				<form role="form" action="${pageContext.request.contextPath}/manager/employeeUpdate/${empretired}" method="post" id="detaiLForm" autocomplete="off">
+				<form role="form" action="${pageContext.request.contextPath}/employeeUpdate/${empVO.empretired}" method="post" id="detaiLForm" autocomplete="off">
 					<div class="box-body">
 					    <!-- <input type="hidden" value="" id="forSubmit"> -->
 					    <%-- <input type="hidden" value="${empretired }" name="empretired"> --%>
@@ -167,23 +161,16 @@
 						</div>
 						<div class="form-group">
 							<label>주소</label>
-							<input type="text" name="empaddr" required="required" value="${empVO.empaddr}" >
+							<input type="text" name="empaddr" required="required" value="${empVO.empaddr}" style="width:300px;">
 						</div>
-						<c:if test="${Auth.empauth==1}">
-							<div class="form-group">
+						<div class="form-group">
 								<label>권한</label>
-								<input type="text" name="empauth" required="required"  placeholder=" 일반사원은 0" value="${empVO.empauth}">
-								<span class="errorMsg">0또는 1을 넣어주세요 일반 사원은 0</span>
-							</div>
-						</c:if>
-						<c:if test="${Auth.empauth==0}">
-							<div class="form-group">
-								<label>권한</label>
-								<input type="text" name="empauth" required="required"  placeholder=" 일반사원은 0" value="${empVO.empauth}" readonly="readonly" style="background:lavender;">
-								<span class="errorMsg">0또는 1을 넣어주세요 일반 사원은 0</span>
-							</div>
-						</c:if>
-						
+								<select name="empauth" required="required" style="width:159px;" id="empauth" >
+								  <option value="C" ${empVO.empauth=='C'?'selected':'' }>사원</option>
+								  <option value="B" ${empVO.empauth=='B'?'selected':'' }>director</option>
+								  <option value="A" ${empVO.empauth=='A'?'selected':'' }>manager</option>
+								</select>
+					    </div>
 						<div class="form-group">
 							<label>아이디</label> 
 							<input type="text" name="empid" readonly="readonly"  placeholder=" 영문,숫자 포함 5-12자리" value="${empVO.empid}" style="background:lavender;">
@@ -196,20 +183,12 @@
 							<input type="text" name="emppass" placeholder="기존 비밀번호 입력 필요" >
 							<span class="errorMsg">비밀번호가 일치하지 않습니다.</span> 관리자일 경우 프리패스로 만들 것  -->
 						</div>
-						<c:if test="${Auth.empauth==1}">
-							<div class="box-footer">
-						    	<button type="button" class="btn btn-primary" style="background:red;" id="btnDel">${empretired =='0'?'퇴사사원처리':'삭제' }</button> <!-- 관리자일때만 활성화 -->
-								<button type="submit" class="btn btn-primary" style="${empretired== 0?'visibility:visible;':'visibility:hidden;'}">수정</button>
+						<div class="box-footer">
+								<button type="submit" class="btn btn-primary">수정</button>
 								<br>
 								<button type="button" class="btn btn-primary" style="margin-top:10px;" id="btnReturnToList">리스트로 돌아가기</button>
-							</div>
-						</c:if>
-						<c:if test="${Auth.empauth==0}">
-							<div class="box-footer">
-								<button type="submit" class="btn btn-primary" style="${empretired== 0?'visibility:visible;':'visibility:hidden;'}">수정</button>
-							</div>
-						</c:if>
-					<c:if test="${success!=null }">
+						</div>
+					 <c:if test="${success!=null }">
 						<script>
 							alert("${success}");
 						</script>

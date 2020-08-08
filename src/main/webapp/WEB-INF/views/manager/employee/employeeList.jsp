@@ -28,8 +28,13 @@
    #mainTable td,th{
      border:1px solid black;
    }
+   
+   ul.pagenation a{
+     background: mistyrose;
+   }
   
 </style>
+
 <div class="content">
 
          <div class="row">
@@ -48,7 +53,8 @@
               <button id="selectSearchBtn">검색하기</button>
               <button id="selectReset">리셋</button>
               <br>
-              <button style="margin-top:10px;">${btnName }</button>
+              <button style="margin-top:10px;" id="twoWayBtn">${btnName }</button>
+              <button style="margin-top:10px;" id="empAddBtn"><i class="far fa-plus-square"></i>  직원등록</button>
               <table id="mainTable">
                  <tr>
                     <th>사원번호</th>
@@ -67,7 +73,8 @@
                        <td>${empList.emptel }</td>
                        <td>${empList.empid }</td>
                        <td>${empList.empauth }</td>
-                       <td><button data-click="${empList.empno }" class="btnDetail">상세보기</button></td>
+                       <td><button data-click="${empList.empno }" class="btnDetail">상세보기</button>
+                       <button data-click="${empList.empno }" class="btnDelete" ${btnName=='퇴사사원 조회'?'style="visibility:visible; background:red; color:white;"':'style="display:none;"' }>삭제</button></td>
                     </tr>
                  
                  </c:forEach>
@@ -78,14 +85,14 @@
 	              <div class='text-center'>
 	                   <ul class="pagination">
 	                      <c:if test="${pageMaker.prev == true }">
-	                          <li><a href="${pageContext.request.contextPath}/manager/empMngList/${empretired }?page=${pageMaker.startPage -1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&laquo;</a></li>
+	                          <li><a href="${pageContext.request.contextPath}/employeeList/${empretired }?page=${pageMaker.startPage -1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&laquo;</a></li>
 	                       </c:if>
 	                      <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-	                         <li class="${pageMaker.cri.page == idx?'active':''}"><a href="${pageContext.request.contextPath}/manager/empMngList/${empretired }?page=${idx}&searchType=${cri.searchType}&keyword=${cri.keyword}"> ${idx }</a></li>
+	                         <li class="${pageMaker.cri.page == idx?'active':''}"><a href="${pageContext.request.contextPath}/employeeList/${empretired }?page=${idx}&searchType=${cri.searchType}&keyword=${cri.keyword}"> ${idx }</a></li>
 	                       </c:forEach>
 	                       <!--  언제나 나오는 게 아니니까  -->
 	                       <c:if test="${pageMaker.next == true }">
-	                          <li><a href="${pageContext.request.contextPath}/manager/empMngList/${empretired }?page=${pageMaker.endPage +1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&raquo;</a></li>
+	                          <li><a href="${pageContext.request.contextPath}/employeeList/${empretired }?page=${pageMaker.endPage +1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&raquo;</a></li>
 	                       </c:if>
 	                   </ul>
 	                   <!-- 테스트용 
@@ -103,10 +110,16 @@
          </div>
 </div>
 <script>
+
+//직원 추가 버튼을 누르면
+
+$("#empAddBtn").click(function(){
+	location.href="${pageContext.request.contextPath}/empAdd";
+})
 $("#selectSearchBtn").click(function(){
 	var searchType = $("#tableSelect").val();
 	var keyword = $("#searchInput").val();
-	alert(searchType);
+	
 	if("${btnName}"=="퇴사사원 조회"){ //근무사원 리스트에서 검색한 경우
 	  location.href = "${pageContext.request.contextPath}/employeeList/0?searchType="+searchType+"&keyword="+keyword;
 	}else{
@@ -124,6 +137,25 @@ $(".btnDetail").click(function(){
 	var keyword = "${cri.keyword}";
 	location.href = "${pageContext.request.contextPath}/employeeDetail/${empretired}?empno="+empno+"&page=${pageMaker.cri.page}&searchType="+searchType+"&keyword="+keyword;
 
+})
+
+//삭제 버튼 눌렀을 경우 -- 사원이라서 퇴사처리임
+$(".btnDelete").click(function(){
+	var empno = $(this).attr("data-click");
+	var confirmM = confirm("해당 정보를 삭제하시겠습니까?");
+    if(confirmM){
+    	location.href="${pageContext.request.contextPath}/employeeDelete?empno="+empno;
+    }
+})
+
+$("#twoWayBtn").click(function(){
+	var searchType = $("#tableSelect").val();
+	var keyword = $("#searchInput").val();
+	if("${btnName}"=="퇴사사원 조회"){ //근무사원 리스트에서 검색한 경우
+		  location.href = "${pageContext.request.contextPath}/employeeList/1?searchType="+searchType+"&keyword="+keyword; 
+	    }else{
+		  location.href = "${pageContext.request.contextPath}/employeeList/0?searchType="+searchType+"&keyword="+keyword;	
+		}
 })
     	/* var selectOption = $("#tableSelect").val();
     	$("#selectSearchBtn").click(function(){

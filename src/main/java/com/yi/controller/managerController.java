@@ -26,7 +26,7 @@ public class managerController {
 	@RequestMapping(value ="/employeeList/{empretired}", method = RequestMethod.GET)
 	public String employeeList(SearchCriteria cri, Model model, @PathVariable("empretired") int empretired) throws Exception {
 		List<EmployeeVO> empList = employeeService.listSearchCriteriaEmployee(cri, empretired);
-		System.out.println(empList.get(0));
+		//System.out.println(empList.get(0));
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
@@ -59,10 +59,68 @@ public class managerController {
 			return "manager/employee/employeeDetailForm";
 		}
 	
+	//사원 등록하기
+		@RequestMapping(value = "empAdd", method = RequestMethod.GET)
+		public String empAdd(SearchCriteria cri, Model model) throws Exception {
+			
+			int lastEmpNo = 0;
+			
+			List<EmployeeVO> list1 =  employeeService.listCriteriaEmployee(cri,0);
+			List<EmployeeVO> list2 =  employeeService.listCriteriaEmployee(cri,1);
+			
+			if(list1.size() == 0) {
+				lastEmpNo = 1;
+			}
+			if(list1.size() != 0) {
+			   int lastNo = employeeService.listCriteriaEmployee(cri,0).get(0).getEmpno();
+			   lastEmpNo = lastNo +1 ;
+			   
+			   if(list2.size() !=0) {
+					int lastNo2 = employeeService.listCriteriaEmployee(cri,1).get(0).getEmpno();
+					
+					if(lastNo> lastNo2) {
+						lastEmpNo = lastNo +1 ;
+					  }else {
+						  lastEmpNo = lastNo2 +1;
+					  }
+					}
+		    	}
+			;
+			model.addAttribute("cri", cri);
+			model.addAttribute("lastNo", lastEmpNo);
+			return "manager/employee/employeeRegisterForm";
+		}
 	
 	
+		@RequestMapping(value = "empAdd", method = RequestMethod.POST)
+		public String empAddPost(EmployeeVO vo, SearchCriteria cri, Model model) throws Exception {
+			System.out.println(vo);
+			employeeService.insertEmployee(vo);
+			
+			return "redirect:employeeDetail/"+vo.getEmpretired()+"?empno="+vo.getEmpno();
+		}
+		
+		@RequestMapping(value = "employeeUpdate/{empretired}", method = RequestMethod.POST)
+		public String employeeUpdate(EmployeeVO vo, SearchCriteria cri, Model model,
+				@PathVariable("empretired") int empretired, HttpSession session) throws Exception {
+			System.out.println(vo);
+			employeeService.updateEmployee(vo);
+			model.addAttribute("success", "수정이 완료되었습니다.");
+			model.addAttribute("empVO", vo);
+			model.addAttribute("cri", cri);
+			model.addAttribute("empretired", empretired);
+			return "redirect:/employeeDetail/"+vo.getEmpretired()+"?empno="+vo.getEmpno();
+		}
 	
-	
+		@RequestMapping(value = "employeeDelete", method = RequestMethod.GET)
+		public String employeeDelete(int empno, SearchCriteria cri, Model model) throws Exception {
+			//System.out.println(empno);
+			EmployeeVO vo = employeeService.readByNoEmployee(empno);
+			vo.setEmpretired(1);
+			employeeService.updateEmployee(vo);
+			
+			return "redirect:employeeList/0";
+		}
 	
 	
 	

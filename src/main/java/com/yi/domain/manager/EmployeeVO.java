@@ -50,7 +50,7 @@ public class EmployeeVO {
 	public String getEmpauth() {
 		return empauth;
 	}
-	public void setEmpaut(String empauth) {
+	public void setEmpauth(String empauth) {
 		this.empauth = empauth;
 	}
 	public String getEmpid() {
@@ -74,7 +74,7 @@ public class EmployeeVO {
 	@Override
 	public String toString() {
 		return "EmployeeVO [empno=" + empno + ", empname=" + empname + ", empbirth=" + empbirth + ", emptel=" + emptel
-				+ ", empaddr=" + empaddr + ", empaut=" + empauth + ", empid=" + empid + ", emppass=" + emppass
+				+ ", empaddr=" + empaddr + ", empauth=" + empauth + ", empid=" + empid + ", emppass=" + emppass
 				+ ", empretired=" + empretired + "]";
 	}
 	
