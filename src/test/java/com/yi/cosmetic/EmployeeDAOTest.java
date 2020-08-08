@@ -36,7 +36,7 @@ public class EmployeeDAOTest {
 		vo.setEmpaddr("서울어딘가");
 		vo.setEmpid("apple");
 		vo.setEmppass("apple");
-		vo.setEmpaut("C");
+		vo.setEmpauth("C");
 		
 
 		dao.insertEmployee(vo);		
