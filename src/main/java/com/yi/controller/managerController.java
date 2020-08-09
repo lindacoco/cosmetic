@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.yi.domain.PageMaker;
 import com.yi.domain.SearchCriteria;
 import com.yi.domain.manager.EmployeeVO;
+import com.yi.domain.manager.ProductVO;
 import com.yi.persistence.manager.service.EmployeeService;
+import com.yi.persistence.manager.service.ProductService;
 
 @Controller
 public class managerController {
@@ -22,6 +24,8 @@ public class managerController {
 	@Autowired
 	private EmployeeService employeeService;
 
+	@Autowired
+	private ProductService productService;
 	
 	@RequestMapping(value ="/employeeList/{empretired}", method = RequestMethod.GET)
 	public String employeeList(SearchCriteria cri, Model model, @PathVariable("empretired") int empretired) throws Exception {
@@ -122,7 +126,26 @@ public class managerController {
 			return "redirect:employeeList/0";
 		}
 	
-	
+	// 상품
+		@RequestMapping(value = "productList",method = RequestMethod.GET)
+		public String productList(SearchCriteria cri, Model model) throws Exception{
+			List<ProductVO> list = productService.listSearchCriteriaProduct(cri);
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(cri);
+			pageMaker.setTotalCount(productService.totalSearchCountProduct(cri));
+			
+			if(cri.getKeyword() !="") {
+				model.addAttribute("keyword",cri.getKeyword());
+			}
+			model.addAttribute("cri",cri);
+			model.addAttribute("pageMaker",pageMaker);
+			model.addAttribute("list",list);
+			
+			model.addAttribute("btnName","재고부족 상품");
+			
+			return "manager/product/productList";
+			
+		}
 	
 	
 	

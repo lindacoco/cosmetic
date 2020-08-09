@@ -338,17 +338,17 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="${pageContext.request.contextPath }/productList">
                 <i class="fas fa-gift" style="margin-right:5px;"></i>
                 <span>상품관리</span>
-                <span class="label label-primary pull-right">4</span>
+               <!--  <span class="label label-primary pull-right">4</span> -->
               </a>
-              <ul class="treeview-menu">
+             <!--  <ul class="treeview-menu">
                 <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
                 <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                 <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                 <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-              </ul>
+              </ul> -->
             </li>
             <li>
               <a href="../widgets.html">

@@ -39,6 +39,9 @@
 		  <if test="searchType=='pname'.toString()">
 		    and pname like CONCAT('%',#{keyword},'%')
 		  </if>
+		  <if test="searchType=='pevent'.toString()">
+		    and pevent like CONCAT('%',#{keyword},'%')
+		  </if>
 	  </where>
  </sql>
 
