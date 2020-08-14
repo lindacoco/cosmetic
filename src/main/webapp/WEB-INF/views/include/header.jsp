@@ -356,17 +356,17 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="${pageContext.request.contextPath }/eventList">
                 <i class="far fa-gem" style="margin-right:5px;"></i>
                 <span>이벤트</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
+             <!--  <ul class="treeview-menu">
                 <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
                 <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
                 <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
                 <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-              </ul>
+              </ul> -->
             </li>
             <li class="treeview">
               <a href="#">

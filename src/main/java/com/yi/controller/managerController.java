@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.yi.domain.PageMaker;
 import com.yi.domain.SearchCriteria;
 import com.yi.domain.manager.EmployeeVO;
+import com.yi.domain.manager.EventVO;
 import com.yi.domain.manager.ProductVO;
 import com.yi.persistence.manager.service.EmployeeService;
+import com.yi.persistence.manager.service.EventService;
 import com.yi.persistence.manager.service.ProductService;
 
 @Controller
@@ -26,6 +28,9 @@ public class managerController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private EventService eventService;
 	
 	@RequestMapping(value ="/employeeList/{empretired}", method = RequestMethod.GET)
 	public String employeeList(SearchCriteria cri, Model model, @PathVariable("empretired") int empretired) throws Exception {
@@ -147,7 +152,27 @@ public class managerController {
 			
 		}
 	
-	
+	// 이벤트 리스트
+		@RequestMapping(value = "eventList", method = RequestMethod.GET)
+		public String eventList(SearchCriteria cri, Model model) throws Exception{
+			List<EventVO> eList = eventService.listSearchCriteriaEvent(cri);
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(cri);
+			pageMaker.setTotalCount(productService.totalSearchCountProduct(cri));
+			
+			if(cri.getKeyword() !="") {
+				model.addAttribute("keyword",cri.getKeyword());
+			}
+			model.addAttribute("cri",cri);
+			model.addAttribute("pageMaker",pageMaker);
+			model.addAttribute("list",eList);
+			
+			model.addAttribute("btnName","종료된 이벤트");
+		   
+			
+			return "manager/event/eventList";
+		}
+		
 	
 	
 	
