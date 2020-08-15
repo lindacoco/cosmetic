@@ -352,8 +352,13 @@
             </li>
             <li>
               <a href="../widgets.html">
-                <i class="fab fa-teamspeak" style="margin-right:5px;"></i> <span>고객관리</span> <small class="label pull-right bg-green">new</small>
+                <i class="fab fa-teamspeak" style="margin-right:5px;"></i> <span>고객 서비스</span> <small class="label pull-right bg-green">new</small>
               </a>
+              <ul class="treeview-menu">
+                <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> 고객센터</a></li>
+                <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> 고객 관리</a></li>
+                <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> 상품평관리</a></li>
+              </ul> 
             </li>
             <li class="treeview">
               <a href="${pageContext.request.contextPath }/eventList">
