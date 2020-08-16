@@ -10,3 +10,5 @@ select count(pno) from product;
 
 -- 이벤트
 select * from event;
+
+SELECT * FROM USER;

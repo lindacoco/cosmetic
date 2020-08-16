@@ -18,8 +18,8 @@ public interface UserDAO {
 	public int totalSearchCountUser(SearchCriteria cri, int usersecess) throws Exception;
 	
 	//아이디 체크를 위해 생성
-	public UserVO readByIdUser(String userno)throws Exception;
-	public UserVO readByIdPwUser(String userno,String emppass)throws Exception;
+	public UserVO readByIdUser(String userid)throws Exception;
+	public UserVO readByIdPwUser(String userid,String userpass)throws Exception;
 	// 리플 기능 필요한 곳에서
 	// public void updateReplyCnt(int amount, int bno)throws Exception;
 	
