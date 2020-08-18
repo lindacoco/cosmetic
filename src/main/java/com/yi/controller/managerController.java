@@ -16,9 +16,11 @@ import com.yi.domain.SearchCriteria;
 import com.yi.domain.manager.EmployeeVO;
 import com.yi.domain.manager.EventVO;
 import com.yi.domain.manager.ProductVO;
+import com.yi.domain.manager.UserVO;
 import com.yi.persistence.manager.service.EmployeeService;
 import com.yi.persistence.manager.service.EventService;
 import com.yi.persistence.manager.service.ProductService;
+import com.yi.persistence.manager.service.UserService;
 
 @Controller
 public class managerController {
@@ -31,6 +33,9 @@ public class managerController {
 	
 	@Autowired
 	private EventService eventService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value ="/employeeList/{empretired}", method = RequestMethod.GET)
 	public String employeeList(SearchCriteria cri, Model model, @PathVariable("empretired") int empretired) throws Exception {
@@ -174,6 +179,29 @@ public class managerController {
 		}
 		
 	
-	
+	// 고객
+		@RequestMapping(value ="/userList/{usersecess}", method = RequestMethod.GET)
+		public String userList(SearchCriteria cri, Model model, @PathVariable("usersecess") int usersecess) throws Exception {
+			List<UserVO> userList = userService.listSearchCriteriaUser(cri, usersecess);
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(cri);
+			pageMaker.setTotalCount(userService.totalSearchCountUser(cri, usersecess));
+			
+			
+			model.addAttribute("cri",cri);
+			model.addAttribute("list",userList);
+			model.addAttribute("pageMaker", pageMaker);
+			model.addAttribute("empretired", usersecess);
+	        
+			// 같은 페이지를 공유하기에 버튼이름 변경을 위한 model값 선언
+					if (usersecess == 1) { //비활성화면
+						model.addAttribute("btnName", "고객조회");
+					} else {
+						model.addAttribute("btnName", "탈퇴회원");
+					}
+			return "manager/user/userList";
+			
+		}
 	
 }

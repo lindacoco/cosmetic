@@ -356,7 +356,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> 고객센터</a></li>
-                <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> 고객 관리</a></li>
+                <li><a href="${pageContext.request.contextPath}/userList/0"><i class="fa fa-circle-o"></i> 고객 관리</a></li>
                 <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> 상품평관리</a></li>
               </ul> 
             </li>
