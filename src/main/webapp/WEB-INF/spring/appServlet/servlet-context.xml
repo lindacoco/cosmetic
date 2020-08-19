@@ -23,6 +23,12 @@
 	
 	<context:component-scan base-package="com.yi.controller" />
 	
-	
+	<!-- 파일 업로드 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+          <beans:property name="maxUploadSize" value="10485760"></beans:property>
+    </beans:bean>
+   <beans:bean id="uploadPathEvent" class="java.lang.String">
+	     <beans:constructor-arg value="/cosmetic/event/"></beans:constructor-arg>
+	</beans:bean>
 	
 </beans:beans>
