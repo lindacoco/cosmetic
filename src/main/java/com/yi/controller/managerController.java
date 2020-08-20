@@ -3,10 +3,12 @@ package com.yi.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.yi.domain.PageMaker;
 import com.yi.domain.SearchCriteria;
@@ -107,7 +110,7 @@ public class managerController {
 		return entity;
 	}
 	
-//	//ckEditor 이미지 업로드용
+	//ckEditor 이미지 업로드용
 //	@ResponseBody
 //	@RequestMapping(value = "imageUpload", method = RequestMethod.POST)
 //	public String imageUpload(HttpServletRequest req, HttpServletResponse resp, 
@@ -141,7 +144,7 @@ public class managerController {
 //				}
 //	       return null;
 //	   }	
-//	
+	
 	@RequestMapping(value ="/employeeList/{empretired}", method = RequestMethod.GET)
 	public String employeeList(SearchCriteria cri, Model model, @PathVariable("empretired") int empretired) throws Exception {
 		List<EmployeeVO> empList = employeeService.listSearchCriteriaEmployee(cri, empretired);
@@ -282,17 +285,17 @@ public class managerController {
 			
 			return "manager/event/eventList";
 		}
-		@RequestMapping(value = "eventRegister", method = RequestMethod.GET)
-		public String EventRegister(SearchCriteria cri, Model model) {
-			int lastNo = 0;
-			try {
-				List<EventVO> eventList = eventService.listSearchCriteriaEvent(cri);
-				lastNo = eventList.get(0).getEno() + 1;
-			} catch (Exception e) {
-				lastNo = 1;
-			}
+    @RequestMapping(value = "eventRegister", method = RequestMethod.GET)
+	public String EventRegister(SearchCriteria cri, Model model) {
+		int lastNo = 0;
+		try {
+			List<EventVO> eventList = eventService.listSearchCriteriaEvent(cri);
+			lastNo = eventList.get(0).getEno() + 1;
+		} catch (Exception e) {
+			lastNo = 1;
+		}
 
-			model.addAttribute("autoNo", lastNo); // 가장 나중 번호로 자동세팅
+		model.addAttribute("autoNo", lastNo); // 가장 나중 번호로 자동세팅
 
 			return "/manager/event/eventRegister";
 		}

@@ -27,10 +27,16 @@
 	$(function(){
 
 
-		var url = "${url2}";
+		/* var url = "${url2}";
 		CKEDITOR.replace('content',{filebrowserUploadUrl:'${pageContext.request.contextPath}/manager/imageUpload'});
 		CKEDITOR.config.width = '77em';
-		CKEDITOR.config.height = '50em';
+		CKEDITOR.config.height = '50em'; */
+		
+		 ClassicEditor
+	        .create( document.querySelector( '#detail' ) )
+	        .catch( error => {
+	            console.error( error );
+	        } );
 
 	})
 </script>
@@ -45,29 +51,29 @@
 					<div class="box-body">
 						<div class="form-group">
 							<label>이벤트 번호</label>
-							<input type="hidden" name="no" class="form-control" value="${autoNo }" readonly="readonly" style="width:200px;">
+							<input type="hidden" name="eno" class="form-control" value="${autoNo }" readonly="readonly" style="width:200px;">
 							 <br><span style="margin-left:10px;">${autoNo }</span>
 						</div>
 						<div class="form-group">
 							<label>이벤트 타이틀</label>
-							<input type="text" name="title" class="form-control" style="width:1080px;">
+							<input type="text" name="etitle" class="form-control" style="width:1080px;">
 						</div>
 							<!-- ckeditor -->
 						<div class="form-group">
 							<label>이벤트 내용</label>
-						    <textarea name="content" rows="80" id="detail"></textarea>
+						    <textarea name="econtent" rows="80" id="detail"></textarea>
 						</div>
 						<div class="form-group">
 							<label>시작 날짜</label>
-							<input type="date" name="startdate" class="form-control" style="width:200px;" required="required">
+							<input type="date" name="estartdate" class="form-control" style="width:200px;" required="required">
 						</div>
 						<div class="form-group">
 							<label>종료 날짜</label>
-							<input type="date" name="enddate" class="form-control" style="width:200px;" required="required">
+							<input type="date" name="eenddate" class="form-control" style="width:200px;" required="required">
 						</div>
 						<div class="form-group">
 							<label>메인 사진</label>
-							<input type="file" name="eventPic" id="file" required="required">
+							<input type="file" name="epic" id="file" required="required">
 						</div>
 						<div class="form-group" id="previewDiv">
 							
