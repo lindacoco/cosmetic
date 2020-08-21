@@ -113,7 +113,7 @@
 } */
 //이벤트 추가 버튼을 누르면
 $("#eventAddBtn").click(function(){
-	location.href="${pageContext.request.contextPath}/eventResister";
+	location.href="${pageContext.request.contextPath}/eventRegister";
 })
 $("#selectSearchBtn").click(function(){
 	var searchType = $("#tableSelect").val();

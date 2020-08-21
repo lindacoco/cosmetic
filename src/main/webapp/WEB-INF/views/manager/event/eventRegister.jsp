@@ -7,8 +7,8 @@
     height: 350px;
   }
   .previewImg{
-    width: 300px;
-    height: 300px;
+    width: 980px;
+    height: 60px;
   }
     [type="date"] {
 	background: #fff
@@ -22,6 +22,15 @@
 	[type="date"]::-webkit-calendar-picker-indicator {
 		opacity: 0;
 	}
+	
+	.ck-editor__editable_inline {
+    min-height: 500px;
+    max-width: 980px;
+    }
+   .ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar{
+    width: 980px;
+  }
+
 </style>
 <script>
 	$(function(){
@@ -56,12 +65,12 @@
 						</div>
 						<div class="form-group">
 							<label>이벤트 타이틀</label>
-							<input type="text" name="etitle" class="form-control" style="width:1080px;">
+							<input type="text" name="etitle" class="form-control" style="width:980px;">
 						</div>
 							<!-- ckeditor -->
 						<div class="form-group">
 							<label>이벤트 내용</label>
-						    <textarea name="econtent" rows="80" id="detail"></textarea>
+						    <input type="text" name="econtent" rows="80" id="detail">
 						</div>
 						<div class="form-group">
 							<label>시작 날짜</label>
@@ -73,7 +82,7 @@
 						</div>
 						<div class="form-group">
 							<label>메인 사진</label>
-							<input type="file" name="epic" id="file" required="required">
+							<input type="file" name="eventPic" id="file" required="required">
 						</div>
 						<div class="form-group" id="previewDiv">
 							
@@ -108,7 +117,7 @@
       
         //리스트로 버튼 눌렀을 때 리스트로 돌아가기 
 		$("#btnReturnToList").click(function(){
-			location.href="${pageContext.request.contextPath}/manager/eventList";
+			location.href="${pageContext.request.contextPath}/eventList";
 		})
    
   </script>

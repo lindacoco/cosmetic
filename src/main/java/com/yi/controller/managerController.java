@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.google.gson.JsonObject;
 import com.yi.domain.PageMaker;
 import com.yi.domain.SearchCriteria;
 import com.yi.domain.manager.EmployeeVO;
@@ -111,39 +112,39 @@ public class managerController {
 	}
 	
 	//ckEditor 이미지 업로드용
-//	@ResponseBody
-//	@RequestMapping(value = "imageUpload", method = RequestMethod.POST)
-//	public String imageUpload(HttpServletRequest req, HttpServletResponse resp, 
-//	    MultipartHttpServletRequest multiFile, Model model,String ckEditorFuncNum) throws Exception {
-//		JsonObject json = new JsonObject();
-//	    PrintWriter printWriter = null;
-//		MultipartFile file = multiFile.getFile("upload");
-//		if(file !=null && file.getSize() > 0) { 
-//	      try {
-//				printWriter = resp.getWriter();
-//				resp.setContentType("text/html");
-//				String serverPath =req.getContextPath()+"/manager/displayFile/practice?filename=";
-//				//String serverPath ="localhost:8080/tourland/displayFile/practice?filename=";
-//				String serverPath2 =req.getContextPath()+"/resources/images/practice";
-//				String savedName = UploadFileUtils.uploadFile(serverPath2, file.getOriginalFilename().replaceAll(" ", "_"),
-//				file.getBytes());
-//				String bigSizePic = savedName.substring(0, 12) + savedName.substring(14);
-//				
-//				json.addProperty("uploaded", 1);
-//	            json.addProperty("fileName", file.getOriginalFilename());
-//	            json.addProperty("url", serverPath+bigSizePic);
-//	            printWriter.println(json);
-//	            
-//				}catch (Exception e) {
-//					e.printStackTrace();
-//				}finally {
-//				    if(printWriter != null) {
-//					    printWriter.close();
-//					 }
-//				   }
-//				}
-//	       return null;
-//	   }	
+	@ResponseBody
+	@RequestMapping(value = "imageUpload", method = RequestMethod.POST)
+	public String imageUpload(HttpServletRequest req, HttpServletResponse resp, 
+	    MultipartHttpServletRequest multiFile, Model model,String ckEditorFuncNum) throws Exception {
+		JsonObject json = new JsonObject();
+	    PrintWriter printWriter = null;
+		MultipartFile file = multiFile.getFile("upload");
+		if(file !=null && file.getSize() > 0) { 
+	      try {
+				printWriter = resp.getWriter();
+				resp.setContentType("text/html");
+				String serverPath =req.getContextPath()+"/manager/displayFile/practice?filename=";
+				//String serverPath ="localhost:8080/tourland/displayFile/practice?filename=";
+				String serverPath2 =req.getContextPath()+"/resources/images/practice";
+				String savedName = UploadFileUtils.uploadFile(serverPath2, file.getOriginalFilename().replaceAll(" ", "_"),
+				file.getBytes());
+				String bigSizePic = savedName.substring(0, 12) + savedName.substring(14);
+				
+				json.addProperty("uploaded", 1);
+	            json.addProperty("fileName", file.getOriginalFilename());
+	            json.addProperty("url", serverPath+bigSizePic);
+	            printWriter.println(json);
+	            
+				}catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+				    if(printWriter != null) {
+					    printWriter.close();
+					 }
+				   }
+				}
+	       return null;
+	   }	
 	
 	@RequestMapping(value ="/employeeList/{empretired}", method = RequestMethod.GET)
 	public String employeeList(SearchCriteria cri, Model model, @PathVariable("empretired") int empretired) throws Exception {
@@ -299,17 +300,17 @@ public class managerController {
 
 			return "/manager/event/eventRegister";
 		}
-		@RequestMapping(value = "eventRegister", method = RequestMethod.POST)
-		public String EventRegisterPost(EventVO vo, MultipartFile eventPic, Model model) throws Exception {
+	@RequestMapping(value = "eventRegister", method = RequestMethod.POST)
+	public String EventRegisterPost(EventVO vo, MultipartFile eventPic, Model model) throws Exception {
 
-			String savedName = UploadFileUtils.uploadFile(uploadPathEvent, eventPic.getOriginalFilename().replaceAll(" ", "_"),
-					eventPic.getBytes());
-			String bigSizePic = savedName.substring(0, 12) + savedName.substring(14);
+		String savedName = UploadFileUtils.uploadFile(uploadPathEvent, eventPic.getOriginalFilename().replaceAll(" ", "_"),
+				eventPic.getBytes());
+		String bigSizePic = savedName.substring(0, 12) + savedName.substring(14);
 
 			vo.setEpic(bigSizePic.replaceAll(" ", "_"));
 			eventService.insertEvent(vo);
-			return "redirect:/manager/eventList";
-		}
+			return "redirect:eventList";
+	}
 		
 		// 디테일 조회
 		@RequestMapping(value = "eventDetailForm", method = RequestMethod.GET)
