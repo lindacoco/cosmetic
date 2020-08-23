@@ -68,7 +68,7 @@
                     <tr data-click="${eList.eno }">
                        <td>${eList.eno }</td>
                        <td>${eList.etitle }</td>
-                       <td>${eList.epic }</td>
+                       <td><img src="displayFile/event?filename=${eList.epic}" style="width:100%; height: 60px;"></td>
                        <td><fmt:formatDate value='${eList.estartdate }' pattern ='yyyy-MM-dd'/></td>
                        <td><fmt:formatDate value='${eList.eenddate }' pattern='yyyy-MM-dd'/></td>
                        <td><button data-click="${eList.eno }" class="btnDetail">상세보기</button>

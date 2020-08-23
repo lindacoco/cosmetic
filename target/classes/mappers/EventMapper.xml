@@ -5,7 +5,7 @@
 <!-- 상품 추가 타임디비 나중에 체크필요 -->
   <insert id="insertEvent" parameterType="EventVO"> 
      insert into event(eno, etitle, econtent, epic, estartdate, eenddate) values
-     (#{eno}, #{etitle}, #{epic}, #{econtent}, #{estartdate}, #{eenddate})
+     (#{eno}, #{etitle}, #{econtent}, #{epic}, #{estartdate}, #{eenddate})
   </insert>
 
 

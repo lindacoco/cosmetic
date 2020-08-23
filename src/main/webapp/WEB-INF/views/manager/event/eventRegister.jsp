@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../../include/header.jsp"%>
-
 <style>
   #previewDiv{
     height: 350px;
@@ -41,11 +40,23 @@
 		CKEDITOR.config.width = '77em';
 		CKEDITOR.config.height = '50em'; */
 		
-		 ClassicEditor
+ 		 ClassicEditor
 	        .create( document.querySelector( '#detail' ) )
 	        .catch( error => {
 	            console.error( error );
-	        } );
+	        } ); 
+		/* 
+		 ClassicEditor
+		    .create( document.querySelector( '#detail' ), {
+		        cloudServices: {
+		            tokenUrl: 'https://example.com/cs-token-endpoint',
+		            uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/'
+		        }
+		  
+		    } )
+		   // .then( ... )
+		    .catch( error => {
+	            console.error( error );   */
 
 	})
 </script>
@@ -70,7 +81,7 @@
 							<!-- ckeditor -->
 						<div class="form-group">
 							<label>이벤트 내용</label>
-						    <input type="text" name="econtent" rows="80" id="detail">
+						    <input type="text" name="econtent" id="detail">
 						</div>
 						<div class="form-group">
 							<label>시작 날짜</label>
