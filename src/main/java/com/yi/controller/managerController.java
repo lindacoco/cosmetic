@@ -123,9 +123,9 @@ public class managerController {
 	      try {
 				printWriter = resp.getWriter();
 				resp.setContentType("text/html");
-				String serverPath =req.getContextPath()+"/manager/displayFile/practice?filename=";
+				String serverPath =req.getContextPath()+"/manager/displayFile/coscos?filename=";
 				//String serverPath ="localhost:8080/tourland/displayFile/practice?filename=";
-				String serverPath2 =req.getContextPath()+"/resources/images/practice";
+				String serverPath2 =req.getContextPath()+"/resources/images/coscos";
 				String savedName = UploadFileUtils.uploadFile(serverPath2, file.getOriginalFilename().replaceAll(" ", "_"),
 				file.getBytes());
 				String bigSizePic = savedName.substring(0, 12) + savedName.substring(14);
@@ -350,9 +350,15 @@ public class managerController {
 			return "redirect:/manager/EventDetailForm?eno=" + vo.getEno();
 
 		}	
+		
+		@RequestMapping(value ="eventDelete", method= RequestMethod.GET)
+		public String eventDelete(int eno) throws Exception{
+			eventService.deleteEvent(eno);
+			return "redirect:/eventList";
+		}
 	
 	// 고객
-		@RequestMapping(value ="/userList/{usersecess}", method = RequestMethod.GET)
+		@RequestMapping(value ="userList/{usersecess}", method = RequestMethod.GET)
 		public String userList(SearchCriteria cri, Model model, @PathVariable("usersecess") int usersecess) throws Exception {
 			List<UserVO> userList = userService.listSearchCriteriaUser(cri, usersecess);
 			

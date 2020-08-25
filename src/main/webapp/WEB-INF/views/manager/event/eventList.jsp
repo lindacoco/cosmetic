@@ -138,19 +138,18 @@ $(".btnDetail").click(function(){
 
 })
 
-//삭제 버튼 눌렀을 경우 -- 사원이라서 퇴사처리임
 $(".btnDelete").click(function(){
-	var pno = $(this).attr("data-click");
-	var confirmM = confirm("해당 상품을 삭제하시겠습니까?");
+	var eno = $(this).attr("data-click");
+	var confirmM = confirm("해당 이벤트를 삭제하시겠습니까?");
     if(confirmM){
-    	location.href="${pageContext.request.contextPath}/productDelete?pno="+pno;
+    	location.href="${pageContext.request.contextPath}/eventDelete?eno="+eno;
     }
 })
 
 $("#twoWayBtn").click(function(){
 	var searchType = $("#tableSelect").val();
 	var keyword = $("#searchInput").val();
-	if("${btnName}"=="재고부족 상품"){ //기본리스트에서 검색
+	if("${btnName}"=="종료된 이벤트"){ //기본리스트에서 검색
 		  location.href = "${pageContext.request.contextPath}/productList?searchType="+searchType+"&keyword="+keyword; 
 	    }else{
 		  location.href = "${pageContext.request.contextPath}/productList?searchType="+searchType+"&keyword="+keyword;	
