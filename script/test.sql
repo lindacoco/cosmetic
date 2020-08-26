@@ -12,3 +12,5 @@ select count(pno) from product;
 select * from event;
 
 SELECT * FROM USER;
+
+select * from board;

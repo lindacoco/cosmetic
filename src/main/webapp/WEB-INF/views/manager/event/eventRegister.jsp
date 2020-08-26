@@ -35,18 +35,18 @@
 	$(function(){
 
 
-		/* var url = "${url2}";
+		/*  var url = "${url2}";
 		CKEDITOR.replace('content',{filebrowserUploadUrl:'${pageContext.request.contextPath}/manager/imageUpload'});
 		CKEDITOR.config.width = '77em';
-		CKEDITOR.config.height = '50em'; */
+		CKEDITOR.config.height = '50em';  */
 		
- 		/*  ClassicEditor
+ 		  ClassicEditor
 	        .create( document.querySelector( '#detail' ) )
 	        .catch( error => {
 	            console.error( error );
-	        } );  */
-		/* 
-		 ClassicEditor
+	        } );  
+		
+		 /* ClassicEditor
 		    .create( document.querySelector( '#detail' ), {
 		        cloudServices: {
 		            tokenUrl: 'https://example.com/cs-token-endpoint',
@@ -57,8 +57,8 @@
 		   // .then( ... )
 		    .catch( error => {
 	            console.error( error );   */
-	    /*         
-	            ClassicEditor
+	            
+	         /*    ClassicEditor
 	            .create( document.querySelector( '#detail' ),{  
 	            	language: 'ko',        
 	            	simpleUpload: {
@@ -67,8 +67,8 @@
 	            } )
 	            .catch( error => {
 	                console.error( error );
-	            } ); */
-	            
+	            } ); 
+	             */
 	         /*    ClassicEditor.create(document.querySelector("#detail"), {
 	                simpleUpload: {
 	                    uploadUrl: '${pageContext.request.contextPath}/imageUpload'
@@ -81,7 +81,7 @@
 	            
 
 	})
-/* 	class MyUploadAdapter {
+ 	 class MyUploadAdapter {
 	    constructor( loader ) {
 	        // The file loader instance to use during the upload.
 	        alert("오냐고");
@@ -121,7 +121,7 @@
 	    _initListeners( resolve, reject, file ) {
 	        const xhr = this.xhr;
 	        const loader = this.loader;
-	        const genericErrorText = `Couldn't upload file: ${ file.name }.`;
+	        const genericErrorText = `업로드 실패`;
 
 	        xhr.addEventListener( 'error', () => reject( genericErrorText ) );
 	        xhr.addEventListener( 'abort', () => reject() );
@@ -196,7 +196,17 @@
 	    } )
 	    .catch( error => { alert("여긴가");
 	        console.log( error );
-	    } ); */
+	    } ); 
+	    
+/* 	    ClassicEditor
+	    .create( editorElement, {
+	        ckfinder: {
+	            uploadUrl: '${pageContext.request.contextPath}/imageUpload'
+	        }
+	    } ) */
+	   /*  .then( ... )
+	    .catch( ... ); */
+
 </script>
 <div class="content">
 	<div class="row">
@@ -219,7 +229,7 @@
 							<!-- ckeditor -->
 						<div class="form-group">
 							<label>이벤트 내용</label>
-						    <textarea name="econtent" id="editor"></textarea> 
+						    <textarea name="econtent" id="detail"></textarea> 
 						</div>
 						<div class="form-group">
 							<label>시작 날짜</label>

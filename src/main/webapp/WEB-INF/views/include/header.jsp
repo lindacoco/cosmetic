@@ -6,7 +6,10 @@
 
 <!DOCTYPE html>
 <html>
-<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+<script src="<c:url value="/ckeditor5-build-classic/ckeditor.js" />"></script>
+<%-- <img src="${pageContext.request.contextPath }/resources/images/profile.jpg"> --%>
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script> -->
+<script src="${pageContext.request.contextPath }/resources/plugins/ckeditor5-build-classic-21.0.0/ckeditor5-build-classic/ckeditor.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script

@@ -157,3 +157,23 @@ ALTER TABLE `review`
 		REFERENCES `product` ( -- 상품
 			`pno` -- 상품번호
 		);
+-- 고객QnA
+CREATE TABLE `board` (
+	`bno`      INT          NOT NULL COMMENT '번호', -- 번호
+	`btitle`   VARCHAR(255) NULL     COMMENT '제목', -- 제목
+	`bwriter`  VARCHAR(20) NOT NULL COMMENT '작성자', -- 작성자
+	`bcontent` LONGBLOB     NOT NULL COMMENT '내용', -- 내용
+	`bregdate` DATE         NULL     COMMENT '작성일자', -- 작성일자
+	`banswer`  LONGBLOB     NULL     COMMENT '답변' -- 답변
+)
+COMMENT '고객QnA';
+
+-- 고객QnA
+ALTER TABLE `board`
+	ADD CONSTRAINT `PK_board` -- 고객QnA 기본키
+		PRIMARY KEY (
+			`bno` -- 번호
+		);
+
+ALTER TABLE `board`
+	MODIFY COLUMN `bno` INT NOT NULL AUTO_INCREMENT COMMENT '번호';

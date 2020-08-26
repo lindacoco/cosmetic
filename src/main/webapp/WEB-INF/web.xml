@@ -28,6 +28,7 @@
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
+		<mvc:default-servlet-handler /> 
 	</servlet-mapping>
     <filter>
 		<filter-name>encodingFilter</filter-name>

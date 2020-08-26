@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.BoardMapper">
+
+
+  <insert id="insertBoard" parameterType="BoardVO"> 
+     insert into board(bno, btitle, bwriter, bcontent, bregdate, banswer) values
+     (#{bno}, #{btitle}, #{bwriter}, #{bcontent}, now(), 'null')
+  </insert>
+
+
+<!-- 게시글 번호으로 검색 -->
+   <select id="readByNoBoard" resultType="BoardVO">
+     select * from board
+     where bno = #{bno} 
+   </select> 
+
+<!-- 게시글 업데이트 -->
+    <update id="updateBoard" parameterType="BoardVO">
+       update board set 
+       btitle =#{btitle}, bcontent=#{bcontent}, banswer=#{banswer}
+       where bno=#{bno}
+    </update> 
+
+
+<!-- 게시글 삭제  -->
+   <delete id="deleteBoard">
+       delete from board 
+       where bno= #{bno}
+   </delete>
+
+
+<!-- 검색 기능 map이 아니라서 cri. 삭제 -->
+ <sql id="search">
+	 <where>
+		  <if test="searchType=='btitle'.toString()">
+		    and btitle like CONCAT('%',#{keyword},'%')
+		  </if>
+		  <if test="searchType=='bcontent'.toString()">
+		    and bcontent like CONCAT('%',#{keyword},'%')
+		  </if>
+	  </where>
+ </sql>
+
+<!-- 검색으로 나타나는 리스트 부분 -->
+    <select id="listSearchCriteriaBoard" resultType="BoardVO">
+      select * from board <include refid="search"/> order by bno desc limit #{pageStart}, #{perPageNum}
+    </select>
+	<!-- 검색한 결과 수  -->
+	    <select id="totalSearchCountBoard" resultType="int">
+	        select  count(bno) from board 
+		    <include refid="search"/>  
+	    
+	    </select>
+ 
+</mapper>

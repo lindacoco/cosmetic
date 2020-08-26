@@ -41,12 +41,12 @@ public class UserDAOTest {
 		dao.insertUser(vo);		
 	}
 	
-	@Test
+	//@Test
 	public void test2ReadByNo() throws Exception{
 		dao.readByNoUser(1);
 	}
     
-	@Test
+	//@Test
 	public void test3Update() throws Exception {
 		UserVO vo = dao.readByNoUser(3);
 		vo.setUsername("냐냐");
@@ -54,13 +54,13 @@ public class UserDAOTest {
 		vo.setUserpass("dododo");
 		dao.updateUser(vo);
 	}
-	@Test
+	//@Test
 	public void test4delete() throws Exception {
 		dao.deleteUser(3);
 		
 	}
 	
-	@Test
+	//@Test
 	public void test5ListCriteria() throws Exception{
 		SearchCriteria cri = new SearchCriteria();
 		cri.setKeyword("do");
