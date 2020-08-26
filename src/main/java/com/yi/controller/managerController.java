@@ -29,10 +29,12 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.google.gson.JsonObject;
 import com.yi.domain.PageMaker;
 import com.yi.domain.SearchCriteria;
+import com.yi.domain.manager.BoardVO;
 import com.yi.domain.manager.EmployeeVO;
 import com.yi.domain.manager.EventVO;
 import com.yi.domain.manager.ProductVO;
 import com.yi.domain.manager.UserVO;
+import com.yi.persistence.manager.service.BoardService;
 import com.yi.persistence.manager.service.EmployeeService;
 import com.yi.persistence.manager.service.EventService;
 import com.yi.persistence.manager.service.ProductService;
@@ -55,6 +57,9 @@ public class managerController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BoardService boardService;
 	
 	// c드라이브에 있는 이미지에 대한 데이터를 직접 가져와야한다. ajax용으로 처리됨
 	@ResponseBody
@@ -381,5 +386,23 @@ public class managerController {
 			return "manager/user/userList";
 			
 		}
+		
+	//고객문의 게시판
+	
+	@RequestMapping(value = "boardList", method = RequestMethod.GET)
+	public String boardList(SearchCriteria cri, Model model) throws Exception{
+		List<BoardVO> list = boardService.listSearchCriteriaBoard(cri);
+		
+		model.addAttribute("list",list);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(boardService.totalSearchCountBoard(cri));
+		
+		model.addAttribute("cri",cri);
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "/manager/board/custBoardList";
+		
+	}
 	
 }

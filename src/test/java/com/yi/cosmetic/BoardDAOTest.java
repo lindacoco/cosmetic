@@ -36,7 +36,7 @@ public class BoardDAOTest {
 		
 		
 		UserVO user = userdao.readByNoUser(3);
-		vo.setBno(1);
+		vo.setBno(2);
 		vo.setBtitle("냐냐");
 		vo.setBwriter(user.getUsername());
 		vo.setBcontent("어쩌구저쩌구");
@@ -47,11 +47,16 @@ public class BoardDAOTest {
 	
 	@Test
 	public void test2ReadByNo() throws Exception{
-	
+	    dao.readByNoBoard(2);
 	}
     
 	@Test
 	public void test3Update() throws Exception {
+		BoardVO vo = new BoardVO();
+		vo.setBtitle("루루루");
+	    vo.setBcontent("힘들구먼");
+	    
+	    dao.updateBoard(vo);
 	
 	}
 	@Test

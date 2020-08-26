@@ -39,6 +39,12 @@
 		  <if test="searchType=='bcontent'.toString()">
 		    and bcontent like CONCAT('%',#{keyword},'%')
 		  </if>
+		  <if test="searchType=='banswer'.toString()">
+		    and banswer is null
+		  </if>
+		  <if test="searchType=='bwriter'.toString()">
+		    and bcontent like CONCAT('%',#{keyword},'%')
+		  </if>
 	  </where>
  </sql>
 
