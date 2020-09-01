@@ -100,7 +100,7 @@ ul#subul a{
 
 header >input{
    float: left;
-   background: url("sephora/iconsearch.png") no-repeat;
+   background: url("${pageContext.request.contextPath}/resources/images/cosme/iconsearch.png") no-repeat;
    background-position: 3px 3px;
    border: 1px solid gray;
    height: 35px;
@@ -315,7 +315,7 @@ header span{
 	color:blue;
 }
 
-* ------------------------------------------------- */
+
 section{
   clear:both;
 }
@@ -440,7 +440,7 @@ section #nav2 li#li1:hover ul#li1sub{
    transition : 1s all ease;  */
 }
 #nav2 li#li4{
-    background: url("sephora/flakes.jpg") no-repeat;  
+    background: url("${pageContext.request.contextPath}/resources/images/cosme/flakes.jpg") no-repeat;  
     background-size: 120px 70px;  
 }
 #nav2 div#third,#nav2 div#commu{

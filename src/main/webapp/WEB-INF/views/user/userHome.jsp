@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Cosmetics, Beauty Products, Fragrances & Tools |Sephora</title>
-<link href="${contextPath.request.pageContext }/resources/css/userHome.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/userHome.css" rel="stylesheet" type="text/css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script>
@@ -17,16 +17,16 @@
 </script>
 </head>
 <body>
-<img id="top" src="sephora/top.jpg" >
+<img id="top" src="${pageContext.request.contextPath }/resources/images/cosme/top.jpg" >
 <nav id="fnav">
    <ul> 
-      <li><a href="#"><img src="sephora/menuicon1.png">Reorder</a></li>
-      <li><a href="#"><img src="sephora/menuicon2.png">Track Order</a></li>
-      <li><a href="#"><img src="sephora/menuicon3.png">Find a Store</a></li>
-      <li><a href="#"><img src="sephora/menuicon4.png">Book a Reservation</a></li>
-      <li id="eng"><a href="#"><img src="sephora/menuicon5.png">English</a>
+      <li><a href="#"><img src="${pageContext.request.contextPath }/resources/images/cosme/menuicon1.png">Reorder</a></li>
+      <li><a href="#"><img src="${pageContext.request.contextPath }/resources/images/cosme/menuicon2.png">Track Order</a></li>
+      <li><a href="#"><img src="${pageContext.request.contextPath }/resources/images/cosme/menuicon3.png">Find a Store</a></li>
+      <li><a href="#"><img src="${pageContext.request.contextPath }/resources/images/cosme/menuicon4.png">Book a Reservation</a></li>
+      <li id="eng"><a href="#"><img src="${pageContext.request.contextPath }/resources/images/cosme/menuicon5.png">English</a>
           <ul id="subul">
-         <li><a href="#"><img src="sephora/menuicon5.png">Francais</a></li>        
+         <li><a href="#"><img src="${pageContext.request.contextPath }/resources/images/cosme/menuicon5.png">Francais</a></li>        
           </ul>
       </li>
     
@@ -37,7 +37,7 @@
     <header> 
        <input type="text" placeholder="         Search">
        <div>
-       <img src="sephora/logo.png" id="logo">
+       <img src="${pageContext.request.contextPath }/resources/images/cosme/logo.png" id="logo">
            
        </div>
        
@@ -45,7 +45,7 @@
            <div>
 	           <input type="checkbox" id="click">
 	           <div>
-			       <label id="register" for="click"><img src="sephora/nextlogo.png" id="hi"></label>
+			       <label id="register" for="click"><img src="${pageContext.request.contextPath }/resources/images/cosme/nextlogo.png" id="hi"></label>
 			       <ul id="hul">
 									          <li><a href="#">Profile</a></li>
 									          <li><a href="#">Beauty Insider</a></li>
@@ -61,7 +61,7 @@
 					             <div>
 				                     <h4>Register with Sephora</h4> 
 				                     <div>         
-				                     <label for="icon"><img src="sephora/xicon.jpg" id="xicon"></label>       
+				                     <label for="icon"><img src="${pageContext.request.contextPath }/resources/images/cosme/xicon.jpg" id="xicon"></label>       
 									</div>                
 				             </div>     
 			                <p>*Required Information</p>
@@ -108,8 +108,8 @@
 		 </div>
 </div>   
 		       <div id="himg">
-           <img src="sephora/iconht.png" class="upup">
-	       <img src="sephora/iconbag.png" class="upup">
+           <img src="${pageContext.request.contextPath }/resources/images/cosme/iconht.png" class="upup">
+	       <img src="${pageContext.request.contextPath }/resources/images/cosme/iconbag.png" class="upup">
 	     </div>
 	       	    
        
@@ -154,12 +154,12 @@
 		                   <li><a href="#"><b>Best of Allure 2019</b></a></li> 		                  
 		              	</ul>
 		              	<div id="fsecondbox">
-		              	 <img src="sephora/second.jpg">
-		              	 <img src="sephora/second2.jpg">
+		              	 <img src="${pageContext.request.contextPath }/resources/images/cosme/second.jpg">
+		              	 <img src="${pageContext.request.contextPath }/resources/images/cosme/second2.jpg">
 		              	 </div>
 		              	 <div id="secondbox">
-		              	    <img src="sephora/second3.jpg">
-		              	    <img src="sephora/second4.jpg" id="li2img">
+		              	    <img src="${pageContext.request.contextPath }/resources/images/cosme/second3.jpg">
+		              	    <img src="${pageContext.request.contextPath }/resources/images/cosme/second4.jpg" id="li2img">
 		              	 </div>
 		              </div>
 		          </li>
@@ -181,15 +181,15 @@
 		                   <li><a href="#">Huda Beauty</a></li>  
 		                 </ul>
 		                   <div id="thirdimg1">
-		                     <img src="sephora/brand.jpg">
+		                     <img src="${pageContext.request.contextPath }/resources/images/cosme/brand.jpg">
 		                   </div>
 		                   <div>
-		                      <img src="sephora/brand2.jpg">
-		                      <img src="sephora/brand3.jpg">		                   
+		                      <img src="${pageContext.request.contextPath }/resources/images/cosme/brand2.jpg">
+		                      <img src="${pageContext.request.contextPath }/resources/images/cosme/brand3.jpg">		                   
 		                   </div>
 		                   <div>
-		                       <img src="sephora/brand4.jpg">
-		                       <img src="sephora/brand5.jpg">		                   
+		                       <img src="${pageContext.request.contextPath }/resources/images/cosme/brand4.jpg">
+		                       <img src="${pageContext.request.contextPath }/resources/images/cosme/brand5.jpg">		                   
 		                   </div>
 		                </div>
 		          </li>
@@ -198,34 +198,34 @@
 		          <li id="li6"><a href="#">COMMUNITY</a>
 		             <div id="commu">
 		               <div>
-		               <img src="sephora/commu1.jpg">
+		               <img src="${pageContext.request.contextPath }/resources/images/cosme/commu1.jpg">
 		               </div>
 		               <div id="undercommu">
-		               <img src="sephora/commu2_1.jpg">
-		               <img src="sephora/commu2.jpg">
+		               <img src="${pageContext.request.contextPath }/resources/images/cosme/commu2_1.jpg">
+		               <img src="${pageContext.request.contextPath }/resources/images/cosme/commu2.jpg">
 		               </div>
 		               <div>	            
-		               <img src="sephora/commu3.jpg">
+		               <img src="${pageContext.request.contextPath }/resources/images/cosme/commu3.jpg">
 		               </div>	
 		               <div>
-		               <img src="sephora/commu4.jpg">
+		               <img src="${pageContext.request.contextPath }/resources/images/cosme/commu4.jpg">
 		               </div>
 		             </div>		          
 		          </li> 
 		          <li id="li7"><a href="#">HAPPENING IN STORE</a>
 		              <div id="underli7">
 		                 <div>
-		                  <img src="sephora/happening1.jpg">
+		                  <img src="${pageContext.request.contextPath }/resources/images/cosme/happening1.jpg">
 		                 </div>
 		                 <div>
-		                  <img src="sephora/happening2_1.jpg">
-		                  <img src="sephora/happening2_2.jpg">
+		                  <img src="${pageContext.request.contextPath }/resources/images/cosme/happening2_1.jpg">
+		                  <img src="${pageContext.request.contextPath }/resources/images/cosme/happening2_2.jpg">
 		                 </div>
 		                 <div>
-		                  <img src="sephora/happening3.jpg">
+		                  <img src="${pageContext.request.contextPath }/resources/images/cosme/happening3.jpg">
 		                 </div>
 		                 <div>
-		                  <img src="sephora/happening4.jpg">
+		                  <img src="${pageContext.request.contextPath }/resources/images/cosme/happening4.jpg">
 		                 </div>
 		              </div>
 		          
@@ -236,13 +236,13 @@
     </section>
 </div>
 <div id="mainimg">
-    <img src="sephora/main2.jpg" id="main">
+    <img src="${pageContext.request.contextPath }/resources/images/cosme/main2.jpg" id="main">
 </div>
    <div id="container2">
        <h1>Just Arrived</h1>
        
        <div>
-          <img src="sephora/product1.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product1.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">exclusive</p>
@@ -251,7 +251,7 @@
              Eyeshadow Palette</p>
        </div>
        <div>
-          <img src="sephora/product2.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product2.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -260,7 +260,7 @@
          
        </div>
        <div>
-          <img src="sephora/product3.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product3.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">exclusive</p>
@@ -268,7 +268,7 @@
           <p>Mercury Retrograde Eyeshadow Palette</p>
        </div>
        <div>
-          <img src="sephora/product4.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product4.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -276,7 +276,7 @@
           <p>Kiss Me All Day</p>
        </div>
        <div>
-          <img src="sephora/product5.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product5.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -284,7 +284,7 @@
           <p>Starry Eyes to Hypnotize Eyeshadow Palette</p>
        </div>
        <div>
-          <img src="sephora/product6.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product6.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -294,15 +294,15 @@
        
    </div>
     <div id="container3">
-      <img src="sephora/con3_1.jpg">
-      <img src="sephora/con3_2.jpg">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/con3_1.jpg">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/con3_2.jpg">
     
     </div>
     <div id="container4">
        <h1>Editor's Picks</h1>
        
        <div>
-          <img src="sephora/product7.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product7.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -310,7 +310,7 @@
           <p>Merry & Brighter</p>
        </div>
        <div>
-          <img src="sephora/product8.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product8.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -319,7 +319,7 @@
          
        </div>
        <div>
-          <img src="sephora/product9.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product9.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -327,7 +327,7 @@
           <p>Nude + Red Hot Lips 3-Piece Mini Set</p>
        </div>
        <div>
-          <img src="sephora/product10.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product10.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -335,7 +335,7 @@
           <p>Moisture Miracle Set</p>
        </div>
        <div>
-          <img src="sephora/product11.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product11.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -343,7 +343,7 @@
           <p>The Glow Show: Skincare & Makeup Set</p>
        </div>
        <div>
-          <img src="sephora/product12.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product12.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small"></p>
@@ -356,7 +356,7 @@
        <h1>Luxury Gifts</h1>
        
        <div>
-          <img src="sephora/product13.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product13.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -364,7 +364,7 @@
           <p>Skincare for Makeup Lovers: Dewy Glow Set</p>
        </div>
        <div>
-          <img src="sephora/product14.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product14.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -373,7 +373,7 @@
          
        </div>
        <div>
-          <img src="sephora/product15.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product15.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -381,7 +381,7 @@
           <p>Glow On, Gorgeous- JVN's Biossance Favorites</p>
        </div>
        <div>
-          <img src="sephora/product16.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product16.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">exclusive</p>
@@ -389,7 +389,7 @@
           <p>LUST:Mini Matte Trance™ Lipstic Trio</p>
        </div>
        <div>
-          <img src="sephora/product17.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product17.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -397,7 +397,7 @@
           <p>Purifying Detox Holiday Set</p>
        </div>
        <div>
-          <img src="sephora/product18.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product18.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">exclusive</p>
@@ -410,7 +410,7 @@
        <h1>Recommended For You</h1>
        
        <div>
-          <img src="sephora/product19.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product19.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -418,7 +418,7 @@
           <p>Skincare for Makeup Lovers: Dewy Glow Set</p>
        </div>
        <div>
-          <img src="sephora/product20.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product20.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -427,7 +427,7 @@
          
        </div>
        <div>
-          <img src="sephora/product9.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product9.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -435,7 +435,7 @@
           <p>Nude + Red Hot Lips 3-Piece Mini Set</p>
        </div>
        <div>
-          <img src="sephora/product16.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product16.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">exclusive</p>
@@ -443,7 +443,7 @@
           <p>LUST:Mini Matte Trance™ Lipstic Trio</p>
        </div>
        <div>
-          <img src="sephora/product4.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product4.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
@@ -451,7 +451,7 @@
           <p>Kiss Me All Day</p>
        </div>
        <div>
-          <img src="sephora/product18.jpg">
+          <img src="${pageContext.request.contextPath }/resources/images/cosme/product18.jpg">
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">exclusive</p>
@@ -461,13 +461,13 @@
        
    </div>
    <div id="rb">
-      <img src="sephora/bann.jpg">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/bann.jpg">
    </div>
    <div id="pic4">
-      <img src="sephora/bann1.jpg">
-      <img src="sephora/bann2.jpg">
-      <img src="sephora/bann3.jpg">
-      <img src="sephora/bann4.jpg">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/bann1.jpg">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/bann2.jpg">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/bann3.jpg">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/bann4.jpg">
    </div>
    
    <footer>
@@ -535,7 +535,7 @@
 	          </li>
 	      </ul>
       </div>
-      <img src="sephora/footericon.jpg.png">
+      <img src="${pageContext.request.contextPath }/resources/images/cosme/footericon.jpg.png">
       </div>
       <div id="right">
         <p>Sephora Beauty Canada, Inc. (600 de Maisonneuve Boulevard West, Suite 2400, Montreal Quebec, H3A 3J2, sephora.ca) is 
