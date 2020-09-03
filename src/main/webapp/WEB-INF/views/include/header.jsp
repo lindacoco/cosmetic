@@ -479,7 +479,7 @@
         <section class="content-header">
           <h1>
              쇼핑몰 관리 페이지
-            <small><b><a href="#" style="text-decoration:none;"><font color=red>to Mall</font></a></b></small>
+            <small><b><a href="${pageContext.request.contextPath }/main" style="text-decoration:none;"><font color=red>to Mall</font></a></b></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

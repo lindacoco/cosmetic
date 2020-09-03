@@ -83,23 +83,20 @@
 	              <div class='text-center'>
 	                   <ul class="pagination">
 	                      <c:if test="${pageMaker.prev == true }">
-	                          <li><a href="${pageContext.request.contextPath}/userList/${userretired }?page=${pageMaker.startPage -1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&laquo;</a></li>
+	                          <li><a href="${pageContext.request.contextPath}/userList/${usersecess }?page=${pageMaker.startPage -1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&laquo;</a></li>
 	                       </c:if>
 	                      <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-	                         <li class="${pageMaker.cri.page == idx?'active':''}"><a href="${pageContext.request.contextPath}/userList/${userretired }?page=${idx}&searchType=${cri.searchType}&keyword=${cri.keyword}"> ${idx }</a></li>
+	                         <li class="${pageMaker.cri.page == idx?'active':''}"><a href="${pageContext.request.contextPath}/userList/${usersecess }?page=${idx}&searchType=${cri.searchType}&keyword=${cri.keyword}"> ${idx }</a></li>
 	                       </c:forEach>
 	                       <!--  언제나 나오는 게 아니니까  -->
 	                       <c:if test="${pageMaker.next == true }">
-	                          <li><a href="${pageContext.request.contextPath}/userList/${userretired }?page=${pageMaker.endPage +1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&raquo;</a></li>
+	                          <li><a href="${pageContext.request.contextPath}/userList/${usersecess }?page=${pageMaker.endPage +1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">&raquo;</a></li>
 	                       </c:if>
 	                   </ul>
 	                   <!-- 테스트용 
 	                   <img src="${pageContext.request.contextPath}/resources/images/banner.jpg"> -->
 	               </div>
 	           </div>
-
-
-
 
 
                     </div>
