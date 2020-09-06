@@ -4,7 +4,6 @@ DROP SCHEMA IF EXISTS `cosmetic`;
 -- mall
 CREATE SCHEMA `cosmetic`;
 
-use cosmetic;
 -- 사원
 CREATE TABLE `employee` (
 	`empno`      INT          NOT NULL COMMENT '사번', -- 사번
@@ -12,7 +11,7 @@ CREATE TABLE `employee` (
 	`empbirth`   DATE         NULL     COMMENT '생년월일', -- 생년월일
 	`emptel`     char(20)     NULL     COMMENT '전화번호', -- 전화번호
 	`empaddr`    VARCHAR(255) NULL     COMMENT '주소', -- 주소
-	`empauth`    char(2)      NULL     COMMENT '권한', -- 권한
+	`empauth`    char(1)      NULL     COMMENT '권한', -- 권한
 	`empid`      varchar(12)  NULL     COMMENT '아이디', -- 아이디
 	`emppass`    varchar(41)  NULL     COMMENT '비밀번호', -- 비밀번호
 	`empretired` TINYINT(1)   NULL     COMMENT '퇴사자여부' -- 퇴사자여부
@@ -56,11 +55,12 @@ ALTER TABLE `product`
 
 -- 상품평
 CREATE TABLE `review` (
-	`no`      INT     NOT NULL COMMENT '번호', -- 번호
-	`pno`     INT     NULL     COMMENT '상품번호', -- 상품번호
-	`userno`  INT     NULL     COMMENT '유저번호', -- 유저번호
-	`regdate` DATE    NULL     COMMENT '등록일', -- 등록일
-	`point`   CHAR(1) NULL     COMMENT '별점' -- 별점
+	`rno`      INT      NOT NULL COMMENT '번호', -- 번호
+	`pno`      INT      NULL     COMMENT '상품번호', -- 상품번호
+	`userno`   INT      NULL     COMMENT '유저번호', -- 유저번호
+	`rcontent` LONGBLOB NULL     COMMENT '내용', -- 내용
+	`regdate`  DATE     NULL     COMMENT '등록일', -- 등록일
+	`point`    CHAR(1)  NULL     COMMENT '별점' -- 별점
 )
 COMMENT '상품평';
 
@@ -68,11 +68,11 @@ COMMENT '상품평';
 ALTER TABLE `review`
 	ADD CONSTRAINT `PK_review` -- 상품평 기본키
 		PRIMARY KEY (
-			`no` -- 번호
+			`rno` -- 번호
 		);
 
 ALTER TABLE `review`
-	MODIFY COLUMN `no` INT NOT NULL AUTO_INCREMENT COMMENT '번호';
+	MODIFY COLUMN `rno` INT NOT NULL AUTO_INCREMENT COMMENT '번호';
 
 -- 회원
 CREATE TABLE `user` (
@@ -138,6 +138,27 @@ ALTER TABLE `notice`
 ALTER TABLE `notice`
 	MODIFY COLUMN `nno` INT NOT NULL AUTO_INCREMENT COMMENT '번호';
 
+-- 고객QnA
+CREATE TABLE `board` (
+	`bno`      INT          NOT NULL COMMENT '번호', -- 번호
+	`btitle`   VARCHAR(255) NULL     COMMENT '제목', -- 제목
+	`bwriter`  VARCHAR(20)  NOT NULL COMMENT '작성자', -- 작성자
+	`bcontent` LONGBLOB     NOT NULL COMMENT '내용', -- 내용
+	`bregdate` DATE         NULL     COMMENT '작성일자', -- 작성일자
+	`banswer`  LONGBLOB     NULL     COMMENT '답변' -- 답변
+)
+COMMENT '고객QnA';
+
+-- 고객QnA
+ALTER TABLE `board`
+	ADD CONSTRAINT `PK_board` -- 고객QnA 기본키
+		PRIMARY KEY (
+			`bno` -- 번호
+		);
+
+ALTER TABLE `board`
+	MODIFY COLUMN `bno` INT NOT NULL AUTO_INCREMENT COMMENT '번호';
+
 -- 상품평
 ALTER TABLE `review`
 	ADD CONSTRAINT `FK_user_TO_review` -- 회원 -> 상품평
@@ -157,23 +178,3 @@ ALTER TABLE `review`
 		REFERENCES `product` ( -- 상품
 			`pno` -- 상품번호
 		);
--- 고객QnA
-CREATE TABLE `board` (
-	`bno`      INT          NOT NULL COMMENT '번호', -- 번호
-	`btitle`   VARCHAR(255) NULL     COMMENT '제목', -- 제목
-	`bwriter`  VARCHAR(20) NOT NULL COMMENT '작성자', -- 작성자
-	`bcontent` LONGBLOB     NOT NULL COMMENT '내용', -- 내용
-	`bregdate` DATE         NULL     COMMENT '작성일자', -- 작성일자
-	`banswer`  LONGBLOB     NULL     COMMENT '답변' -- 답변
-)
-COMMENT '고객QnA';
-
--- 고객QnA
-ALTER TABLE `board`
-	ADD CONSTRAINT `PK_board` -- 고객QnA 기본키
-		PRIMARY KEY (
-			`bno` -- 번호
-		);
-
-ALTER TABLE `board`
-	MODIFY COLUMN `bno` INT NOT NULL AUTO_INCREMENT COMMENT '번호';

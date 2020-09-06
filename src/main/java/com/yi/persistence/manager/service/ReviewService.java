@@ -33,8 +33,8 @@ public class ReviewService {
 	}
 
 	
-	public void deleteReview(int no) throws Exception {
-		dao.deleteReview(no);;
+	public void deleteReview(int rno) throws Exception {
+		dao.deleteReview(rno);;
 
 	}
 

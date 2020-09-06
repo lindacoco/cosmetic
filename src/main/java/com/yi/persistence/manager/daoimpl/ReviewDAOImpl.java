@@ -37,8 +37,8 @@ private SqlSession sqlSession;
 	}
 
 	@Override
-	public void deleteReview(int no) throws Exception {
-		sqlSession.delete(namespace+"deleteReview",no);
+	public void deleteReview(int rno) throws Exception {
+		sqlSession.delete(namespace+"deleteReview",rno);
 
 	}
 
