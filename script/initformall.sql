@@ -81,7 +81,7 @@ CREATE TABLE `user` (
 	`userbirth`  DATE         NULL     COMMENT '생년월일', -- 생년월일
 	`usertel`    char(20)     NULL     COMMENT '전화번호', -- 전화번호
 	`useraddr`   VARCHAR(255) NULL     COMMENT '주소', -- 주소
-	`userid`     varchar(12)  NULL     COMMENT '유저아이디', -- 유저아이디
+	`userid`     varchar(50)  NULL     COMMENT '유저아이디', -- 유저아이디
 	`userpass`   varchar(41)  NULL     COMMENT '유저비밀번호', -- 유저비밀번호
 	`usersecess` TINYINT(1)   NULL     COMMENT '탈퇴여부' -- 탈퇴여부
 )

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +14,37 @@
 		$("#xicon").click(function(){
 			$("#click").prop("checked", false);
 		})
+		 var regiForm = $("#registerdiv").css("display");
+	 $("#hi").click(function(){
+		 regisiForm = "block";
+	 })	
+	 
+		
+		/* $(document).on("click","#hi",function(){
+			$("#registerdiv").css("display","block");
+			alert(registerForm);
+		}) */
+	/*  if(registerForm == "block"){
+		 
+		 alert($("#hul li").css("hover"));
+	 } */
+		
+	 $("form").submit(function(){
+		 alert("제출");
+	 })
+		
 	})
 </script>
+<style>
+  
+</style>
 </head>
 <body>
+<c:if test="${sucess !=null }">
+   <script>
+      alert("회원가입 성공.");
+   </script>
+</c:if>
 <img id="top" src="${pageContext.request.contextPath }/resources/images/cosme/top.jpg" >
 <nav id="fnav">
    <ul> 
@@ -56,7 +84,8 @@
 									          <li><a href="#">Reward Bazaar</a></li> 
 									          </ul>
 		      </div>
-		       <div id="oo">			 
+		       <div id="oo">		
+		           <form action="${pageContext.request.contextPath}/userAdd" method="post" id="registerForm" autocomplete="off">	 
 				   <div id="registerdiv">
 					             <div>
 				                     <h4>Register with Sephora</h4> 
@@ -66,12 +95,12 @@
 				             </div>     
 			                <p>*Required Information</p>
 				                <div id="firstinput">
-				                    <input type="text" placeholder="   First name*" autofocus="autofocus" required>
-				                    <input type="text" placeholder="   Last name*" required>
+				                    <input type="text" required placeholder="   First name*" autofocus="autofocus"  name="username1">
+				                    <input type="text" placeholder="   Last name*" required name="username2">
 				                </div>
 				                <div id="secondinput">
-					                <input type="email" placeholder="   Email address*"><br>
-					                <input type="text" placeholder="   Password (6 to 12 characters)*">
+					                <input type="email" placeholder="   Email address*" name = "userid"><br>
+					                <input type="text" placeholder="   Password (6 to 12 characters)*" name="userpass">
 				                </div>
 				                <div id="read">
 				                   <h1>Beauty INSIDER</h1>
@@ -102,6 +131,7 @@
 			                 <p class="lastp">Sephora uses Google ReCaptcha and users are subject to Google's <span>Privacy policy</span> & <span>terms</span></p>
 			           
 		           </div>
+		          </form> 
            </div>
 		       
 		
