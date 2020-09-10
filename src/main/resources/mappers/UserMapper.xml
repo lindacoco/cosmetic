@@ -4,8 +4,8 @@
 
 <!-- 고객 추가  -->
   <insert id="insertUser" parameterType="UserVO"> 
-     insert into user(userno, username, userbirth, usertel, useraddr, userid, userpass, usersecess) values
-     (#{userno}, #{username}, #{userbirth}, #{usertel}, #{useraddr}, #{userid}, password(#{userpass}), 0)
+     insert into user(userno, username, userbirth, usertel, useraddr, userid, userpass, usersecess, yesorno) values
+     (#{userno}, #{username}, #{userbirth}, #{usertel}, #{useraddr}, #{userid}, password(#{userpass}), 0, #{yesorno})
   </insert>
 
 
@@ -29,7 +29,7 @@
 <!-- 정보 업데이트 -->
     <update id="updateUser" parameterType="UserVO">
        update user set 
-       username =#{username}, userbirth=#{userbirth}, usertel=#{usertel},useraddr=#{useraddr}, userpass=password(#{userpass}), usersecess = #{usersecess}
+       username =#{username}, userbirth=#{userbirth}, usertel=#{usertel},useraddr=#{useraddr}, userpass=password(#{userpass}), usersecess = #{usersecess}, yesorno= #{yesorno}
        where userno=#{userno}
     </update> 
 

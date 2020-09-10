@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cosmetics, Beauty Products, Fragrances & Tools |Sephora</title>
+<title>Cosmetics, Beauty Products, Fragrances & Tools |LALACOSME</title>
 <link href="${pageContext.request.contextPath }/resources/css/userHome.css" rel="stylesheet" type="text/css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
@@ -42,7 +42,7 @@
 <body>
 <c:if test="${sucess !=null }">
    <script>
-      alert("회원가입 성공.");
+      alert("회원가입 성공. 로그인 수행해주세요.");
    </script>
 </c:if>
 <img id="top" src="${pageContext.request.contextPath }/resources/images/cosme/top.jpg" >
@@ -88,7 +88,7 @@
 		           <form action="${pageContext.request.contextPath}/userAdd" method="post" id="registerForm" autocomplete="off">	 
 				   <div id="registerdiv">
 					             <div>
-				                     <h4>Register with Sephora</h4> 
+				                     <h4>Register with LALACOSME</h4> 
 				                     <div>         
 				                     <label for="icon"><img src="${pageContext.request.contextPath }/resources/images/cosme/xicon.jpg" id="xicon"></label>       
 									</div>                
@@ -104,9 +104,9 @@
 				                </div>
 				                <div id="read">
 				                   <h1>Beauty INSIDER</h1>
-				                     <input type="checkbox">
+				                     <input type="checkbox" name="yseorno">
 				                     <div>
-				                        <p><b>Yes, Join Sephora's free 
+				                        <p><b>Yes, Join LALACOSME's free 
 				                           rewards program and earn points on every purchase.</b><br>
 				                        </p>
 				                        <p id="smallblue">By joining you agree to our <font color="blue">Terms & Conditions.</font></p>               
@@ -121,14 +121,14 @@
 			                <div id="subscribe">
 			                <input type="checkbox">
 				                     <div>
-				                        <p><b>Subscribe to Sephora emails</b><br>
+				                        <p><b>Subscribe to LALACOSME emails</b><br>
 				                     </div> 
 			                 </div>   
 			                 <div id="submit">
 			                    <input type="text" placeholder="     ZIP Code (to about store events near you)">
 			                    <input type="submit" value="RESISTER">   
 			                 </div>   
-			                 <p class="lastp">Sephora uses Google ReCaptcha and users are subject to Google's <span>Privacy policy</span> & <span>terms</span></p>
+			                 <p class="lastp">LALACOSME uses Google ReCaptcha and users are subject to Google's <span>Privacy policy</span> & <span>terms</span></p>
 			           
 		           </div>
 		          </form> 
@@ -162,7 +162,7 @@
 		                   <li><a href="#">SALE</a></li> 
 		                   <li><a href="#">MEN</a></li> 
 		                   <li><a href="#">MINI SIZE</a></li> 
-                           <li><a href="#">SEPHORA COLLECTION</a></li> 
+                           <li><a href="#">LALACOSME COLLECTION</a></li> 
                            <li><a href="#">BEAUTY OFFERS</a></li> 
                       </ul>                  
                    </li>
@@ -197,7 +197,7 @@
 		              <div id="third">
 		              	<ul id="li3sub">
 		              	   <li class="sizeup"><a href="#"><b>Brands A-Z</b></a></li>
-		                   <li class="sizeup"><a href="#"><b>Sephora Collection</b></a></li>
+		                   <li class="sizeup"><a href="#"><b>LALACOSME Collection</b></a></li>
 		                   <li class="sizeup"><a href="#"><b>New Brands</b></a></li> 
 		                   <li><a href="#">Tower 28</a></li> 
 		                   <li><a href="#">Sulwhasoo</a></li> 
@@ -285,7 +285,7 @@
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
-          <p class="bold">SEPHORA COLLECTION</p>
+          <p class="bold">LALACOSME COLLECTION</p>
           <p>Frosted Party Multi- Sensorial Face mask Set</p>
          
        </div>
@@ -318,7 +318,7 @@
           <p class="new">NEW</p>
           <p class="quick">QUICK LOOK</p>
           <p class="small">limited edition</p>
-          <p class="bold">SEPHORA COLLECTION</p>
+          <p class="bold">LALACOSME COLLECTION</p>
           <p>Frosted Party Freezing & Peeling Mask Duo</p>
        </div>
        
@@ -503,19 +503,19 @@
    <footer>
        <div id="last">
          <div>
-	       <p>About Sephora</p>
+	       <p>About LALACOSME</p>
 	       <ul id="footerul1"> 
-			  <li><a href="#">About Sephora</a></li>
+			  <li><a href="#">About LALACOSME</a></li>
 			  <li><a href="#">Careers</a></li>
-			  <li><a href="#">Sephora Stands Social Impact</a></li> 
+			  <li><a href="#">LALACOSME Stands Social Impact</a></li> 
 			  <li><a href="#">Affiliates</a></li> 
 			  <li><a href="#">Supply Chain Transparency</a></li> 
 			  <li><a href="#">Sitemap</a></li> 
-			  <li><a href="#">Sephora Global Sites</a></li> 
+			  <li><a href="#">LALACOSME Global Sites</a></li> 
 			</ul>  
 		  </div>
 		  <div>  
-	       <p>My Sephora</p>
+	       <p>My LALACOSME</p>
 	       <ul id="footerul2"> 
 			  <li><a href="#">My Account</a></li>
 			  <li><a href="#">Order Status</a></li>
@@ -547,12 +547,12 @@
 			  <li><a href="#">Gift Cards</a></li> 
 			  <li><a href="#">Store Locations</a></li> 
 			  <li><a href="#">Book a Reservation</a></li> 
-			  <li><a href="#">Sephora + Google Home</a></li> 
+			  <li><a href="#">LALACOSME + Google Home</a></li> 
 	       </ul>
        </div> 
       </div>
       <div id="reallast">
-      <p>Sign up for Sephora Emails</p>
+      <p>Sign up for LALACOSME Emails</p>
       <input type="email" placeholder="   Email address">
        <p class="midp">Choose Region:</p>
       <div id="region"> 
@@ -568,12 +568,12 @@
       <img src="${pageContext.request.contextPath }/resources/images/cosme/footericon.jpg.png">
       </div>
       <div id="right">
-        <p>Sephora Beauty Canada, Inc. (600 de Maisonneuve Boulevard West, Suite 2400, Montreal Quebec, H3A 3J2, sephora.ca) is 
-           requesting consent on its own behalf and on behalf of Sephora USA, Inc.</p>
+        <p>LALACOSME Beauty Canada, Inc. (600 de Maisonneuve Boulevard West, Suite 2400, Montreal Quebec, H3A 3J2, LALACOSME.ca) is 
+           requesting consent on its own behalf and on behalf of LALACOSME USA, Inc.</p>
            
-           <p>(525 Market Stree, Floor 32, San Francisco, CA 94105, sephora.com). You may withdraw your consect at any time.</p>
-           <p>Copyright 2019 Sephora USA, Inc. All rights reserved. Terms of Use | Privacy Policy</p>
-           <p> 1 877 SEPHORA(1 877 737 4672)|TTY (1 888 866 9845)</p>
+           <p>(525 Market Stree, Floor 32, San Francisco, CA 94105, LALACOSME.com). You may withdraw your consect at any time.</p>
+           <p>Copyright 2019 LALACOSME USA, Inc. All rights reserved. Terms of Use | Privacy Policy</p>
+           <p> 1 877 LALACOSME(1 877 737 4672)|TTY (1 888 866 9845)</p>
       </div>
    </footer>
 </body>

@@ -16,6 +16,17 @@ public class UserVO {
 	private String userid;
 	private String userpass;
 	private int usersecess;
+	private int yesorno;
+
+	
+	
+	public int getYesorno() {
+		return yesorno;
+	}
+
+	public void setYesorno(int yesorno) {
+		this.yesorno = yesorno;
+	}
 
 	public int getUserno() {
 		return userno;
@@ -85,8 +96,9 @@ public class UserVO {
 	public String toString() {
 		return "UserVO [userno=" + userno + ", username=" + username + ", userbirth=" + userbirth + ", usertel="
 				+ usertel + ", useraddr=" + useraddr + ", userid=" + userid + ", userpass=" + userpass + ", usersecess="
-				+ usersecess + "]";
+				+ usersecess + ", yesorno=" + yesorno + "]";
 	}
+
 	
 	
 

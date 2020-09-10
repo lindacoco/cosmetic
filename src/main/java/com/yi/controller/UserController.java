@@ -39,7 +39,8 @@ public class UserController {
 	
 	//등록
 	@RequestMapping(value = "/userAdd", method = RequestMethod.POST)
-	public String userAdd(String username1, String username2, String userid, String userpass, Model model, SearchCriteria cri) throws Exception {
+	public String userAdd(String yesorno,String username1, String username2, String userid, String userpass, Model model, SearchCriteria cri) throws Exception {
+		System.out.println(yesorno); //스트링? true false
 		//고객
 		List<UserVO> list=userService.listSearchCriteriaUser(cri, 0);
 		//탈퇴고객
