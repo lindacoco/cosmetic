@@ -11,13 +11,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script>
 	$(function(){
+		$("#btnRegister").click(function(){
+			//$("#click").prop("checked", false);
+		    $("#loginDiv").css("display","none");
+			$("#registerdiv").css("display","block");
+		})
+		$("#btnLogin").click(function(){
+			$("#loginDiv").css("display","block");
+		})
+	
+		$("#btnReg").click(function(){
+			$("#signDiv").css("display","none");
+			$("#registerdiv").css("display","block");
+		})
 		$("#xicon").click(function(){
-			$("#click").prop("checked", false);
+			$("#registerdiv").css("display","none");
 		})
 		 var regiForm = $("#registerdiv").css("display");
-	 $("#hi").click(function(){
-		 regisiForm = "block";
-	 })	
+	/*  $("#hi").click(function(){
+		 regiForm = "block";
+	 }) */	
 	 
 		
 		/* $(document).on("click","#hi",function(){
@@ -36,7 +49,42 @@
 	})
 </script>
 <style>
+  .loginOr button{
+    background: #B7F0B1;
+    margin-top: 5px;
+    width: 40%;
+    height: 90%;
+  }
   
+  header div#loginDiv{
+	position: absolute;
+ 	top:86px;
+	left:-320px; 
+	width:380px;
+	height:400px;
+	padding:25px 25px;
+	background: white;
+	z-index: 1;	
+	box-shadow: 1px 1px 3px gray;
+    display: none; 
+}
+header div#loginDiv input{
+  width: 95%;
+  height: 30px;
+  margin-top: 10px;
+}
+header div#loginDiv #btnSign {
+  width:150px;
+  background: black;
+  color:white;
+}
+header div#loginDiv #btnReg {
+  width:150px;
+  height: 30px;
+  background: black;
+  color:white;
+}
+
 </style>
 </head>
 <body>
@@ -75,6 +123,7 @@
 	           <div>
 			       <label id="register" for="click"><img src="${pageContext.request.contextPath }/resources/images/cosme/nextlogo.png" id="hi"></label>
 			       <ul id="hul">
+			                                  <li class="loginOr"><a href="#"><button id="btnLogin">Login</button></a><a href="#"><button id="btnRegister">register</button></a></li>
 									          <li><a href="#">Profile</a></li>
 									          <li><a href="#">Beauty Insider</a></li>
 									          <li><a href="#">Lists</a></li>
@@ -83,6 +132,23 @@
 									          <li><a href="#">Reservations</a></li> 
 									          <li><a href="#">Reward Bazaar</a></li> 
 									          </ul>
+		      </div>
+		      <div>
+		        <form action="${pageContext.request.contextPath }/login">
+		        <div id="loginDiv">
+		          <div>
+		             <h4>sign in to LALACOSME</h4>
+		             <input type="text" name="id" required="required" placeholder="*Email address">
+		             <input type="text" name="password" required="required" placeholder="*password">
+		             <input type="submit" value="sign in" id="btnSign">
+		          </div>
+		          <br>
+		          <div>
+		             <h4>NEW to LALACOSME?</h4>
+		             <button id="btnReg">Register</button>
+		          </div>
+		        </div>
+		        </form>
 		      </div>
 		       <div id="oo">		
 		           <form action="${pageContext.request.contextPath}/userAdd" method="post" id="registerForm" autocomplete="off">	 

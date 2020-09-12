@@ -184,6 +184,8 @@ header div#registerdiv{
 	box-shadow: 1px 1px 3px gray;
     display: none;	
 }
+
+
 header div#registerdiv input{
 	border: none;
 	border: 1px solid gray;
