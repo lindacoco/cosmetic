@@ -1,7 +1,5 @@
 package com.yi.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -21,6 +19,7 @@ import com.yi.persistence.manager.service.UserService;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/user/*")
 public class UserController {
 	
 	@Autowired

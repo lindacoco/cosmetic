@@ -11,6 +11,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script>
 	$(function(){
+		
+		var visible = "${visible}";
+		
+		if(visible != null){
+			 $("#loginDiv").css("display","block");
+		}
+		
 		$("#btnRegister").click(function(){
 			//$("#click").prop("checked", false);
 		    $("#loginDiv").css("display","none");
@@ -134,13 +141,21 @@ header div#loginDiv #btnReg {
 									          </ul>
 		      </div>
 		      <div>
-		        <form action="${pageContext.request.contextPath }/login">
+		        <form action="${pageContext.request.contextPath }/loginForm">
 		        <div id="loginDiv">
 		          <div>
 		             <h4>sign in to LALACOSME</h4>
-		             <input type="text" name="id" required="required" placeholder="*Email address">
-		             <input type="text" name="password" required="required" placeholder="*password">
-		             <input type="submit" value="sign in" id="btnSign">
+		             <c:choose>
+		               <c:when test="${User != null }">
+			               <input type="text" name="id" required="required" placeholder="*Email address" value="${User.userid }">
+			               <input type="text" name="password" required="required" placeholder="*password" value="${User.userpass }">
+		               </c:when>
+		               <c:when test="${Employee != null }">
+			               <input type="text" name="id" required="required" placeholder="*Email address" value="${Employee.empid }">
+			               <input type="text" name="password" required="required" placeholder="*password" value="${Employee.emppass }">
+		               </c:when>
+		             </c:choose>
+		            <input type="submit" value="sign in" id="btnSign">
 		          </div>
 		          <br>
 		          <div>

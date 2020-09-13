@@ -42,6 +42,7 @@ import com.yi.persistence.manager.service.UserService;
 import com.yi.util.UploadFileUtils;
 
 @Controller
+@RequestMapping("/manager/*")
 public class managerController {
 	@Resource(name ="uploadPathEvent")   
 	private String uploadPathEvent;

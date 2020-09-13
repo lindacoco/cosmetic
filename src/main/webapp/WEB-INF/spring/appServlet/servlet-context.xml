@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.yi.controller" />
+	
 	
 	<!-- 파일 업로드 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -31,4 +31,15 @@
 	     <beans:constructor-arg value="/cosmetic/event/"></beans:constructor-arg>
 	</beans:bean>
 	
-</beans:beans>
+
+<!-- 이 밑의 맵핑부분에 로그인 처리 안되어있을 때 들어가면 안되는 페이지의 컨트롤러 벨류값을 달면 된다. -->
+ 	<beans:bean id="LoginInterceptor" class="com.yi.tourland.interceptor.LoginInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/manager/**"/>
+			<beans:ref bean="LoginInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+    <context:component-scan base-package="com.yi.controller" />
+ </beans:beans>
