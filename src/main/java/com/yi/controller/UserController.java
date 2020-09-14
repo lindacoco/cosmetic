@@ -19,7 +19,7 @@ import com.yi.persistence.manager.service.UserService;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/user/*")
+//@RequestMapping("/user/*")
 public class UserController {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class UserController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "main", method = RequestMethod.GET)
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
 		return "/user/userHome";

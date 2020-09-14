@@ -14,7 +14,7 @@
 		
 		var visible = "${visible}";
 		
-		if(visible != null){
+		if(visible != ""){
 			 $("#loginDiv").css("display","block");
 		}
 		
@@ -41,6 +41,7 @@
 			$("#registerdiv").css("display","block");
 		})
 		$("#btnLogin").click(function(){
+			$("#registerdiv").css("display","none");
 			$("#loginDiv").css("display","block");
 		})
 	
@@ -162,6 +163,9 @@ header div#loginDiv #btnReg {
 		        <div id="loginDiv">
 		          <div>
 		             <h4>sign in to LALACOSME</h4>
+		              <input type="text" name="id" required="required" placeholder="*Email address" value="${Employee.empid }" id="inputid">
+			          <input type="text" name="password" required="required" placeholder="*password" value="${Employee.emppass }" id="inputpass">
+		            <%--    
 		             <c:choose>
 		               <c:when test="${User != null }">
 			               <input type="text" name="id" required="required" placeholder="*Email address" value="${User.userid }" id="inputid">
@@ -171,7 +175,7 @@ header div#loginDiv #btnReg {
 			               <input type="text" name="id" required="required" placeholder="*Email address" value="${Employee.empid }" id="inputid">
 			               <input type="text" name="password" required="required" placeholder="*password" value="${Employee.emppass }" id="inputpass">
 		               </c:when>
-		             </c:choose>
+		             </c:choose> --%>
 		            <input type="submit" value="sign in" id="btnSign">
 		          </div>
 		          <br>
