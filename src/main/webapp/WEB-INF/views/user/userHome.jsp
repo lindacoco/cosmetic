@@ -18,6 +18,23 @@
 			 $("#loginDiv").css("display","block");
 		}
 		
+		$("form").submit(function(){
+			alert("aa");
+			var idcheck = $("input[name='id']").val();
+			var passcheck = $("input[name='password']").val();
+			
+			//email 정규 표현식
+			var emailReg = /^[a-zA-Z0-9!@.#%^&*]{5-20}$/; // .가능?
+			if(emailReg.test(idcheck) == false){
+				 return false;
+		     }
+			
+			 var pwdReg = /^[a-zA-Z0-9!@#%^&*]{4,15}/;
+			 if(pwdReg.test(passcheck) == false){
+				 return false;
+		     }
+			
+		})
 		$("#btnRegister").click(function(){
 			//$("#click").prop("checked", false);
 		    $("#loginDiv").css("display","none");
@@ -147,12 +164,12 @@ header div#loginDiv #btnReg {
 		             <h4>sign in to LALACOSME</h4>
 		             <c:choose>
 		               <c:when test="${User != null }">
-			               <input type="text" name="id" required="required" placeholder="*Email address" value="${User.userid }">
-			               <input type="text" name="password" required="required" placeholder="*password" value="${User.userpass }">
+			               <input type="text" name="id" required="required" placeholder="*Email address" value="${User.userid }" id="inputid">
+			               <input type="text" name="password" required="required" placeholder="*password" value="${User.userpass }" id="inputpass">
 		               </c:when>
 		               <c:when test="${Employee != null }">
-			               <input type="text" name="id" required="required" placeholder="*Email address" value="${Employee.empid }">
-			               <input type="text" name="password" required="required" placeholder="*password" value="${Employee.emppass }">
+			               <input type="text" name="id" required="required" placeholder="*Email address" value="${Employee.empid }" id="inputid">
+			               <input type="text" name="password" required="required" placeholder="*password" value="${Employee.emppass }" id="inputpass">
 		               </c:when>
 		             </c:choose>
 		            <input type="submit" value="sign in" id="btnSign">
