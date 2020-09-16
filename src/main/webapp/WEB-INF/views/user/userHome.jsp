@@ -206,13 +206,13 @@ header div#loginDiv #btnReg {
 				                </div>
 				                <div id="read">
 				                   <h1>Beauty INSIDER</h1>
-				                     <input type="checkbox" name="yseorno">
+				                     <!-- <input type="checkbox" name="yseorno">
 				                     <div>
 				                        <p><b>Yes, Join LALACOSME's free 
 				                           rewards program and earn points on every purchase.</b><br>
 				                        </p>
 				                        <p id="smallblue">By joining you agree to our <font color="blue">Terms & Conditions.</font></p>               
-				                     </div>
+				                     </div> -->
 				                     <div id="input3">
 				                      <h4>Enter your birthday to receive a free gift every year.</h4>                   
 				                      <input type="number"  min="1" max="12" placeholder="     Month">
@@ -221,7 +221,7 @@ header div#loginDiv #btnReg {
 				                      </div>                
 				                </div> 
 			                <div id="subscribe">
-			                <input type="checkbox">
+			                <input type="checkbox" name="yesorno">
 				                     <div>
 				                        <p><b>Subscribe to LALACOSME emails</b><br>
 				                     </div> 

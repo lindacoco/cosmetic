@@ -1,9 +1,11 @@
+
+
 -- mall
 DROP SCHEMA IF EXISTS `cosmetic`;
 
 -- mall
 CREATE SCHEMA `cosmetic`;
-
+use cosmetic;
 -- 사원
 CREATE TABLE `employee` (
 	`empno`      INT          NOT NULL COMMENT '사번', -- 사번
@@ -18,12 +20,14 @@ CREATE TABLE `employee` (
 )
 COMMENT '사원';
 
+
 -- 사원
 ALTER TABLE `employee`
 	ADD CONSTRAINT `PK_employee` -- 사원 기본키
 		PRIMARY KEY (
 			`empno` -- 사번
 		);
+	
 
 ALTER TABLE `employee`
 	MODIFY COLUMN `empno` INT NOT NULL AUTO_INCREMENT COMMENT '사번';
@@ -83,7 +87,7 @@ CREATE TABLE `user` (
 	`useraddr`   VARCHAR(255) NULL     COMMENT '주소', -- 주소
 	`userid`     varchar(50)  NULL     COMMENT '유저아이디', -- 유저아이디
 	`userpass`   varchar(41)  NULL     COMMENT '유저비밀번호', -- 유저비밀번호
-	`usersecess` TINYINT(1)   NULL     COMMENT '탈퇴여부' -- 탈퇴여부
+	`usersecess` TINYINT(1)   NULL     COMMENT '탈퇴여부', -- 탈퇴여부
 	`yesorno`    TINYINT(1)   NULL     COMMENT '메일수신여부' -- 메일수신여부
 )
 COMMENT '회원';
